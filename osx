@@ -1,0 +1,87 @@
+#!/bin/bash
+
+BROWSER_TABS=(
+    'https://mail.google.com/mail/u/?authuser=john@example.com'
+    'https://calendar.google.com/calendar/?authuser=john@example.com'
+)
+
+applescript-chrome-new-window() {
+    /usr/bin/osascript <<EOT
+        tell application "Google Chrome"
+            tell (make new window)
+            end tell
+            activate
+        end tell
+EOT
+}
+
+applescript-chrome-tab-group() {
+    TABS=("$@")
+    for url in "${TABS[@]}"; do
+        open "${url}" && sleep 1
+    done
+
+    # Put focus back to first tab
+    /usr/bin/osascript -e "tell application \"Google Chrome\" to set active tab index of first window to 1"
+}
+
+# TODO set limits on bounds
+applescript-tile() {
+    local OPTIND o x y w h application
+
+    # Set defaults, in grid units
+    x=0
+    y=0
+    w=6
+    h=12
+
+    while getopts ":x:y:w:h:" o
+    do
+        case $o in
+        x)    x="$OPTARG";;
+        y)    y="$OPTARG";;
+        w)    w="$OPTARG";;
+        h)    h="$OPTARG";;
+        *)    printf "Usage: %s: [-x units] [-y units] [-w units] [-h units] application\\n" "$0"
+              exit 2;;
+        esac
+    done
+
+    shift $((OPTIND - 1))
+    application=$1
+
+    /usr/bin/osascript <<EOT
+        tell application "Finder"
+            set screenSize to bounds of window of desktop
+        	set screenWidthUnit to item 3 of screenSize / 12
+        	set screenHeightUnit to item 4 of screenSize / 12
+        end tell
+
+        tell application "$application"
+	       set bounds of the first window to {screenWidthUnit * $x, screenHeightUnit * $y, screenWidthUnit * $((x + w)), screenHeightUnit * $((y + h))}
+        end tell
+EOT
+}
+
+##
+## Left pane
+##
+applescript-chrome-new-window
+applescript-tile -w6 -h12 "Google Chrome"
+applescript-chrome-tab-group "${BROWSER_TABS[@]}"
+sleep 1
+
+##
+## Right pane
+##
+# Open Slack
+# TODO resize after Slack has loaded
+if [ -x /Applications/Slack.app/ ]; then
+    /usr/bin/osascript -e 'tell application "Slack" to activate'
+        # sleep 30 && \
+        # applescript-tile -x6 -w6 -h9 "Slack"
+else
+    applescript-chrome-new-window && \
+        applescript-tile -x6 -w6 -h9 "Google Chrome" && \
+        open https://slack.com/
+fi
