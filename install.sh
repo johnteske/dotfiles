@@ -1,6 +1,11 @@
 #!/bin/bash
 
-mv ~/.bashrc ~/.bashrc.bak
+backup_config () {
+    [ -f $1 ] && mv $1 "$1.bak"
+}
+
+#mv ~/.bashrc ~/.bashrc.bak
+backup_config ~/.bashrc
 ln -s ~/dotfiles/bash/.bashrc ~/.bashrc
 
 # LINUX
