@@ -25,7 +25,7 @@ download_to_file () {
     elif command -v curl; then
         curl "$1" -o "$2"
     else
-        echo "Unable to download. wget and curl not installed."
+        echo "Unable to download. wget and curl are not installed."
     fi
 }
 
