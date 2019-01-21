@@ -5,6 +5,48 @@ BROWSER_TABS=(
     'https://calendar.google.com/calendar/?authuser=john@example.com'
 )
 
+# FINDER-TERMINAL HELPERS
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    ## cd to the current directory active in the Finder
+    cdf () {
+        local currFolderPath=$( /usr/bin/osascript <<EOT
+            tell application "Finder"
+                try
+            set currFolder to (folder of the front window as alias)
+                on error
+            set currFolder to (path to desktop folder as alias)
+                end try
+                POSIX path of currFolder
+            end tell
+EOT
+        )
+        echo "cd to \"$currFolderPath\""
+        cd "$currFolderPath"
+    }
+
+    ## copy the current Finder path to the clipboard
+    cpf () {
+        local currFinderPath=$( /usr/bin/osascript <<EOT
+            tell application "Finder"
+                set finderSelList to selection as alias list
+            end tell
+
+            if finderSelList ≠ {} then
+                repeat with i in finderSelList
+                    set contents of i to POSIX path of (contents of i)
+                end repeat
+
+                set AppleScript's text item delimiters to linefeed
+                # ' single quote comment needed
+                finderSelList as text
+            end if
+EOT
+        )
+        echo "$currFinderPath" | pbcopy
+        echo "$currFinderPath"
+    }
+fi
+
 applescript-chrome-new-window() {
     /usr/bin/osascript <<EOT
         tell application "Google Chrome"
