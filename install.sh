@@ -3,7 +3,15 @@
 mv ~/.bashrc ~/.bashrc.bak
 ln -s ~/dotfiles/bash/.bashrc ~/.bashrc
 
-source ~/.bashrc
+# LINUX
+#ln -s ~/dotfiles/bash/bashrc.linux ~/.bashrc.linux
+
+# OSX
+[ -f ~/.bash_profile ] && mv ~/.bash_profile ~/.bash_profile.bak
+ln -s ~/dotfiles/bash/.bash_profile.osx ~/.bash_profile
+
+source ~/.bashrc # LINUX
+source ~/.bash_profile # MAC
 
 #if [ ! -f ~/.git-completion.bash ]; then
 #    echo -n "Install git completion? [Y/n] "; read answer
