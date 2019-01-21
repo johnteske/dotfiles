@@ -1,9 +1,8 @@
 # LOAD
 
-for file in ~/dotfiles/bash/.{aliases,git_utils,bash_local}; do
+for file in ~/dotfiles/bash/.{aliases,git_utils,bashrc.linux,bash_local}; do
     [ -r "$file" ] && source "$file"
-done
-unset file
+done; unset file
 
 # PROMPT
 
