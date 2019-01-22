@@ -1,24 +1,23 @@
 # LOAD
-
 for file in ~/dotfiles/bash/.{aliases,git_utils,bashrc.linux,bash_local}; do
     [ -r "$file" ] && source "$file"
 done; unset file
 
-# PROMPT
+# EDITOR
+export VISUAL=vim
+export EDITOR="$VISUAL"
 
+# PROMPT
 parse_git_branch () {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
 }
-
 display_git_branch () {
     local BRANCH=$(parse_git_branch)
     [[ ! -z $BRANCH ]] && echo ":$BRANCH"
 }
-
 PS1="\u:\W\$(display_git_branch)\$ "
 
 # HELPERS
-
 download_to_file () {
     if command -v wget; then
         wget "$1" -O "$2"
