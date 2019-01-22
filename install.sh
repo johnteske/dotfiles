@@ -1,22 +1,26 @@
 #!/bin/bash
 
+INSTALL_ENV=$1
+
 backup_config () {
-    [ -f $1 ] && mv $1 "$1.bak"
+    [ -f "$1" ] && mv "$1" "$1.bak"
 }
 
-#mv ~/.bashrc ~/.bashrc.bak
 backup_config ~/.bashrc
 ln -s ~/dotfiles/bash/.bashrc ~/.bashrc
 
-# LINUX
-#ln -s ~/dotfiles/bash/bashrc.linux ~/.bashrc.linux
+if [ "$INSTALL_ENV" == "linux" ]; then
+    ln -s ~/dotfiles/bash/bashrc.linux ~/.bashrc.linux
 
-# OSX
-[ -f ~/.bash_profile ] && mv ~/.bash_profile ~/.bash_profile.bak
-ln -s ~/dotfiles/bash/.bash_profile.osx ~/.bash_profile
+    source ~/.bashrc
+fi
 
-source ~/.bashrc # LINUX
-source ~/.bash_profile # MAC
+if [ "$INSTALL_ENV" == "osx" ]; then
+    [ -f ~/.bash_profile ] && mv ~/.bash_profile ~/.bash_profile.bak
+    ln -s ~/dotfiles/bash/.bash_profile.osx ~/.bash_profile
+
+    source ~/.bash_profile
+fi
 
 #if [ ! -f ~/.git-completion.bash ]; then
 #    echo -n "Install git completion? [Y/n] "; read answer
