@@ -2,23 +2,23 @@
 
 INSTALL_ENV=$1
 
-backup_config () {
+make_bak () {
     [ -f "$1" ] && mv "$1" "$1.bak"
 }
 
-backup_config ~/.bashrc
-ln -s ~/dotfiles/bash/.bashrc ~/.bashrc
+try_bak_lns () {
+    make_bak "$1" && ln -s "$2" "$1"
+}
+
+try_bak_lns ~/.bashrc ~/dotfiles/bash/.bashrc
 
 if [ "$INSTALL_ENV" == "linux" ]; then
-    ln -s ~/dotfiles/bash/bashrc.linux ~/.bashrc.linux
-
+    ln -s ~/dotfiles/bash/bashrc.linux ~/.bashrc.linux && \
     source ~/.bashrc
 fi
 
 if [ "$INSTALL_ENV" == "osx" ]; then
-    [ -f ~/.bash_profile ] && mv ~/.bash_profile ~/.bash_profile.bak
-    ln -s ~/dotfiles/bash/.bash_profile.osx ~/.bash_profile
-
+    try_bak_lns ~/.bash_profile ~/dotfiles/bash/.bash_profile.osx && \
     source ~/.bash_profile
 fi
 
