@@ -3,8 +3,14 @@
 [ -f ~/.git-completion.bash ] && source ~/.git-completion.bash
 
 gp () {
-  # TODO confirm before setting upstream
-  git push || git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)
+    git push && return
+
+    local answer
+    echo -n "Do you want to push and set the remote as upstream? [Y/n] "
+    read -r answer
+    if [[ $answer != "n" ]] && [[ $answer != "N" ]]; then
+        git push --set-upstream origin "$(git rev-parse --abbrev-ref HEAD)"
+    fi
 }
 
 git-select () {
