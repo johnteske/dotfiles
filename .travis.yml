@@ -1,0 +1,8 @@
+language: bash
+
+os:
+  - linux
+  - osx
+
+script:
+  - bash install.sh "$TRAVIS_OS_NAME"
