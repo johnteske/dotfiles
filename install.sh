@@ -11,9 +11,11 @@ try_bak_lns () {
 }
 
 try_bak_lns ~/.bashrc ~/dotfiles/bash/.bashrc
+try_bak_lns ~/.aliases ~/dotfiles/bash/.aliases
+try_bak_lns ~/.git_utils ~/dotfiles/bash/.git_utils
 
 if [ "$INSTALL_ENV" == "linux" ]; then
-    ln -s ~/dotfiles/bash/bashrc.linux ~/.bashrc.linux && \
+    try_bak_lns ~/.bashrc.linux ~/dotfiles/bash/bashrc.linux && \
     source ~/.bashrc
 fi
 
