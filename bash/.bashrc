@@ -27,7 +27,22 @@ test_status () {
 display_test_status () {
     local STATUS
     STATUS=$(test_status)
-    [[ -n $STATUS ]] && echo ":$STATUS"
+
+    local STATUS_CHAR
+    if [[ -n $STATUS ]]; then
+        case $STATUS in
+        0*)
+            STATUS_CHAR="+"
+        ;;
+        1*)
+            STATUS_CHAR="-"
+        ;;
+        *)
+            STATUS_CHAR="?"
+        ;;
+        esac
+        echo ":$STATUS_CHAR"
+    fi
 }
 PS1="\u:\W\$(display_git_branch)\$(display_test_status)\$ "
 
