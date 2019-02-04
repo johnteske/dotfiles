@@ -12,10 +12,24 @@ parse_git_branch () {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
 }
 display_git_branch () {
-    local BRANCH=$(parse_git_branch)
-    [[ ! -z $BRANCH ]] && echo ":$BRANCH"
+    local BRANCH
+    BRANCH=$(parse_git_branch)
+    [[ -n $BRANCH ]] && echo ":$BRANCH"
 }
-PS1="\u:\W\$(display_git_branch)\$ "
+test_status () {
+    local TEST_STATUS_PATH
+    TEST_STATUS_PATH="$(git rev-parse --show-toplevel 2> /dev/null)/.teststatus"
+    if [ -f "$TEST_STATUS_PATH" ]; then
+        read -r -n 1 STATUS < "$TEST_STATUS_PATH"
+        echo "$STATUS"
+    fi
+}
+display_test_status () {
+    local STATUS
+    STATUS=$(test_status)
+    [[ -n $STATUS ]] && echo ":$STATUS"
+}
+PS1="\u:\W\$(display_git_branch)\$(display_test_status)\$ "
 
 # HELPERS
 download_to_file () {
