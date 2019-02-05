@@ -1,26 +1,29 @@
 #!/bin/bash
+#
+# install.sh
 
 INSTALL_ENV=$1
 
 make_bak () {
-    [ -f "$1" ] && mv "$1" "$1.bak"
+    [ -f "$1" ] && [ ! -L "$1" ] && mv "$1" "$1.bak"
 }
 
-try_bak_lns () {
-    make_bak "$1" && ln -s "$2" "$1"
+bak_lns () {
+    make_bak "$1"
+    ln -sf "$2" "$1"
 }
 
-try_bak_lns ~/.bashrc ~/dotfiles/bash/.bashrc
-try_bak_lns ~/.aliases ~/dotfiles/bash/.aliases
-try_bak_lns ~/.git_utils ~/dotfiles/bash/.git_utils
+bak_lns ~/.bashrc ~/dotfiles/bash/.bashrc
+bak_lns ~/.aliases ~/dotfiles/bash/.aliases
+bak_lns ~/.git_utils ~/dotfiles/bash/.git_utils
 
 if [ "$INSTALL_ENV" == "linux" ]; then
-    try_bak_lns ~/.bashrc.linux ~/dotfiles/bash/bashrc.linux && \
+    bak_lns ~/.bashrc.linux ~/dotfiles/bash/bashrc.linux && \
     source ~/.bashrc
 fi
 
 if [ "$INSTALL_ENV" == "osx" ]; then
-    try_bak_lns ~/.bash_profile ~/dotfiles/bash/.bash_profile.osx && \
+    bak_lns ~/.bash_profile ~/dotfiles/bash/.bash_profile.osx && \
     source ~/.bash_profile
 fi
 
