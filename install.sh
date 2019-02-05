@@ -11,15 +11,16 @@ bak_lns () {
 
 bak_lns ~/.bashrc ~/dotfiles/bash/.bashrc
 bak_lns ~/.aliases ~/dotfiles/bash/.aliases
+bak_lns ~/.prompt ~/dotfiles/bash/.prompt
 bak_lns ~/.git_utils ~/dotfiles/bash/.git_utils
 
 if [ "$INSTALL_ENV" == "linux" ]; then
-    bak_lns ~/.bashrc.linux ~/dotfiles/bash/bashrc.linux && \
+    bak_lns ~/.bashrc.linux ~/dotfiles/bash/bashrc.linux
     source ~/.bashrc
 fi
 
 if [ "$INSTALL_ENV" == "osx" ]; then
-    bak_lns ~/.bash_profile ~/dotfiles/bash/.bash_profile.osx && \
+    bak_lns ~/.bash_profile ~/dotfiles/bash/.bash_profile.osx
     source ~/.bash_profile
 fi
 
