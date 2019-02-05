@@ -4,12 +4,8 @@
 
 INSTALL_ENV=$1
 
-make_bak () {
-    [ -f "$1" ] && [ ! -L "$1" ] && mv "$1" "$1.bak"
-}
-
 bak_lns () {
-    make_bak "$1"
+    [ -f "$1" ] && [ ! -L "$1" ] && mv "$1" "$1.bak"
     ln -sf "$2" "$1"
 }
 
