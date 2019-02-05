@@ -16,12 +16,13 @@ bak_lns ~/.git_utils ~/dotfiles/bash/.git_utils
 
 if [ "$INSTALL_ENV" == "linux" ]; then
     bak_lns ~/.bashrc.linux ~/dotfiles/bash/bashrc.linux
-    source ~/.bashrc
 fi
 
 if [ "$INSTALL_ENV" == "osx" ]; then
     bak_lns ~/.bash_profile ~/dotfiles/bash/.bash_profile.osx
     source ~/.bash_profile
+else
+    source ~/.bashrc
 fi
 
 #if [ ! -f ~/.git-completion.bash ]; then
