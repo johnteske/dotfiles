@@ -1,4 +1,7 @@
+let mapleader=" "
+
 set shortmess=I
+set showcmd
 
 set number
 set numberwidth=1
@@ -28,5 +31,5 @@ let g:netrw_browse_split = 4
 let g:netrw_winsize = 25
 
 " custom
-nnoremap OO O<esc>
-nnoremap oo o<esc>
+nnoremap <Leader>O O<esc>
+nnoremap <Leader>o o<esc>
