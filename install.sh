@@ -25,6 +25,8 @@ else
     source ~/.bashrc
 fi
 
+bak_lns ~/.vimrc ~/dotfiles/vim/.vimrc
+
 #if [ ! -f ~/.git-completion.bash ]; then
 #    echo -n "Install git completion? [Y/n] "; read answer
 #    if [[ $answer != "n" ]] && [[ $answer != "N" ]]; then
