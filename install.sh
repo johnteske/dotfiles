@@ -9,23 +9,23 @@ bak_lns () {
     ln -sf "$2" "$1"
 }
 
-bak_lns ~/.bashrc ~/dotfiles/bash/.bashrc
-bak_lns ~/.aliases ~/dotfiles/bash/.aliases
-bak_lns ~/.prompt ~/dotfiles/bash/.prompt
-bak_lns ~/.git_utils ~/dotfiles/bash/.git_utils
+bak_lns ~/.bashrc ~/dotfiles/bash/bashrc
+bak_lns ~/.aliases ~/dotfiles/bash/aliases
+bak_lns ~/.prompt ~/dotfiles/bash/prompt
+bak_lns ~/.git_utils ~/dotfiles/bash/git_utils
 
 if [ "$INSTALL_ENV" == "linux" ]; then
     bak_lns ~/.bashrc.linux ~/dotfiles/bash/bashrc.linux
 fi
 
 if [ "$INSTALL_ENV" == "osx" ]; then
-    bak_lns ~/.bash_profile ~/dotfiles/bash/.bash_profile.osx
+    bak_lns ~/.bash_profile ~/dotfiles/bash/bash_profile.osx
     source ~/.bash_profile
 else
     source ~/.bashrc
 fi
 
-bak_lns ~/.vimrc ~/dotfiles/vim/.vimrc
+bak_lns ~/.vimrc ~/dotfiles/vim/vimrc
 
 #if [ ! -f ~/.git-completion.bash ]; then
 #    echo -n "Install git completion? [Y/n] "; read answer
