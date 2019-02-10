@@ -1,8 +1,7 @@
 --
 -- Horizontal split
 --
-
-local function split (win, side)
+return function (win, side)
     local frame = win:frame()
     local bounds = win:screen():frame()
     local width = bounds.w * 0.5
@@ -13,11 +12,3 @@ local function split (win, side)
     frame.h = bounds.h
     win:setFrame(frame)
 end
-
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Left", function()
-    split(hs.window.focusedWindow(), "left")
-end)
-
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Right", function()
-    split(hs.window.focusedWindow(), "right")
-end)
