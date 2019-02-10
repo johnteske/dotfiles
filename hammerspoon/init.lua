@@ -24,12 +24,12 @@ local jackEventWatcher = require("jackEventWatcher")
 local function volumeSetter (level, message)
     return function (device)
         device:setOutputVolume(level)
-        hs.notify.show(message, string.format("Volume set to %d%%", level), "")
+        hs.notify.show(message, string.format("Volume set to %d%%", level), device:name())
     end
 end
 
-jackEventWatcher("setConnectedCallback", volumeSetter(20, "Headphones connected"))
-jackEventWatcher("setDisconnectedCallback", volumeSetter(0, "Headphones disconnected"))
+jackEventWatcher("setConnectedCallback", volumeSetter(20, "Jack connected"))
+jackEventWatcher("setDisconnectedCallback", volumeSetter(0, "Jack disconnected"))
 jackEventWatcher("start")
 
 --
@@ -40,12 +40,8 @@ pcall(require, "local")
 --
 -- Config
 --
-hs.alert.defaultStyle.radius = 5
-hs.alert.defaultStyle.strokeColor = { white = 0, alpha = 0 }
-hs.alert.defaultStyle.textSize = 24
-
 hs.hotkey.bind(paw, "R", function()
     hs.reload()
 end)
 
-hs.alert.show("Hammerspoon config loaded")
+hs.notify.show("Hammerspoon config loaded", "", "")
