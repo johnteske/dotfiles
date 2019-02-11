@@ -1,11 +1,7 @@
----
 --- Keys
----
 local paw = {"cmd", "alt", "ctrl"}
 
----
 --- Window management
----
 local split = require("split")
 
 hs.hotkey.bind(paw, "Left", function()
@@ -16,9 +12,7 @@ hs.hotkey.bind(paw, "Right", function()
     split(hs.window.focusedWindow(), "right")
 end)
 
---
 -- Audio
---
 local jackEventWatcher = require("jackEventWatcher")
 
 local function volumeSetter (level, message)
@@ -30,16 +24,17 @@ end
 
 jackEventWatcher("setConnectedCallback", volumeSetter(20, "Jack connected"))
 jackEventWatcher("setDisconnectedCallback", volumeSetter(0, "Jack disconnected"))
+
 jackEventWatcher("start")
 
---
 -- Local-specific config
---
 pcall(require, "local")
 
---
 -- Config
---
+hs.alert.defaultStyle.radius = 5
+hs.alert.defaultStyle.strokeColor = { white = 0, alpha = 0 }
+hs.alert.defaultStyle.textSize = 24
+
 hs.hotkey.bind(paw, "R", function()
     hs.reload()
 end)

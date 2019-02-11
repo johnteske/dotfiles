@@ -1,6 +1,4 @@
---
 -- Horizontal split
---
 return function (win, side)
     local frame = win:frame()
     local bounds = win:screen():frame()
