@@ -18,9 +18,18 @@ if [ "$INSTALL_ENV" == "linux" ]; then
     bak_lns ~/.bashrc.linux ~/dotfiles/bash/bashrc.linux
 fi
 
+ln_hammerspoon () {
+    for f in ~/dotfiles/hammerspoon/*.lua; do
+        file=${f##*/}
+        ln -sf $f ~/.hammerspoon/$file
+    done
+}
+
 if [ "$INSTALL_ENV" == "osx" ]; then
     bak_lns ~/.bash_profile ~/dotfiles/bash/bash_profile.osx
     source ~/.bash_profile
+
+    ln_hammerspoon
 else
     source ~/.bashrc
 fi
