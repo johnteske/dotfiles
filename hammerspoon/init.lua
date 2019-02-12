@@ -13,8 +13,21 @@ hs.hotkey.bind(paw, "Right", function()
 end)
 
 -- Audio
-local muteAudioOnChange = require("muteAudioOnChange")
-muteAudioOnChange("start")
+local function muteAll ()
+    for _, device in ipairs(hs.audiodevice.allOutputDevices()) do
+        device:setOutputVolume(0)
+        hs.notify.show("All audio muted", "Audio output device change detected", "")
+    end
+end
+
+local jackEventWatcher = require("jackEventWatcher")
+jackEventWatcher("setConnectedCallback", muteAll)
+jackEventWatcher("setDisconnectedCallback", muteAll)
+jackEventWatcher("start")
+
+local audiodeviceWatcher = require("audiodeviceWatcher")
+audiodeviceWatcher("setDevCallback", muteAll)
+audiodeviceWatcher("start")
 
 -- Local-specific config
 local _, err = pcall(require, "local")
