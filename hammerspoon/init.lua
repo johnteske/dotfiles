@@ -13,22 +13,12 @@ hs.hotkey.bind(paw, "Right", function()
 end)
 
 -- Audio
-local jackEventWatcher = require("jackEventWatcher")
-
-local function volumeSetter (level, message)
-    return function (device)
-        device:setOutputVolume(level)
-        hs.notify.show(message, string.format("Volume set to %d%%", level), device:name())
-    end
-end
-
-jackEventWatcher("setConnectedCallback", volumeSetter(20, "Jack connected"))
-jackEventWatcher("setDisconnectedCallback", volumeSetter(0, "Jack disconnected"))
-
-jackEventWatcher("start")
+local muteAudioOnChange = require("muteAudioOnChange")
+muteAudioOnChange("start")
 
 -- Local-specific config
-pcall(require, "local")
+local _, err = pcall(require, "local")
+if err then print(err) end
 
 -- Config
 hs.alert.defaultStyle.radius = 5
