@@ -1,0 +1,10 @@
+{
+  "Profiles": [
+    {
+      "Name": "johnteske",
+      "Guid": "johnteske",
+      "Normal Font": "FiraCode-Regular 13",
+      "ASCII Ligatures": true
+    }
+  ]
+}
