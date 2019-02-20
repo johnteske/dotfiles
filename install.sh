@@ -28,6 +28,10 @@ if [ "$INSTALL_ENV" == "osx" ]; then
     bak_lns ~/.bash_profile ~/dotfiles/bash/bash_profile.osx
     source ~/.bash_profile
 
+    # iTerm2
+    # defaults delete com.googlecode.iterm2
+    ln -sf ~/dotfiles/iTerm2/DynamicProfiles/johnteske.json ~/Library/Application\ Support/iTerm2/DynamicProfiles/johnteske.json
+
     # vscodevim.vim
     defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
