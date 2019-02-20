@@ -4,12 +4,16 @@ local paw = {"cmd", "alt", "ctrl"}
 --- Window management
 local split = require("split")
 
+hs.hotkey.bind(paw, "Up", function()
+    split(hs.window.focusedWindow(), 0, 0, 1, 1)
+end)
+
 hs.hotkey.bind(paw, "Left", function()
-    split(hs.window.focusedWindow(), "left")
+    split(hs.window.focusedWindow(), 0, 0, 0.5, 1)
 end)
 
 hs.hotkey.bind(paw, "Right", function()
-    split(hs.window.focusedWindow(), "right")
+    split(hs.window.focusedWindow(), 0.5, 0, 0.5, 1)
 end)
 
 -- Audio

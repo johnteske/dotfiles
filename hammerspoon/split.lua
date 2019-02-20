@@ -1,12 +1,11 @@
--- Horizontal split
-return function (win, side)
+-- Accepts normalized dimensions
+return function (win, xn, yn, wn, hn)
     local frame = win:frame()
     local bounds = win:screen():frame()
-    local width = bounds.w * 0.5
 
-    frame.x = (side == "right") and width or 0
-    frame.y = bounds.y
-    frame.w = width
-    frame.h = bounds.h
+    frame.x = bounds.w * xn
+    frame.y = bounds.h * yn
+    frame.w = bounds.w * wn
+    frame.h = bounds.h * hn
     win:setFrame(frame)
 end
