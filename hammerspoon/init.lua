@@ -16,6 +16,11 @@ hs.hotkey.bind(paw, "Right", function()
     split(hs.window.focusedWindow(), 0.5, 0, 0.5, 1)
 end)
 
+-- Gnome-like terminal new window shortcut
+hs.hotkey.bind({"cmd", "ctrl"}, "T", function()
+    hs.osascript.applescript('tell application "iTerm2" to create window with default profile')
+end)
+
 -- Audio
 local function muteAll ()
     for _, device in ipairs(hs.audiodevice.allOutputDevices()) do
