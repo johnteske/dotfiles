@@ -29,6 +29,10 @@ let g:netrw_browse_split = 4
 let g:netrw_winsize = 25
 
 " custom
+
+" enter command mode
+nnoremap <Leader><Leader> :
+
 nnoremap <Leader>wq :wq<Enter> " compose save/quit
 
 nnoremap <Leader>O O<esc>j " add blank line above w/o insert
