@@ -1,14 +1,10 @@
 let mapleader=" "
 
+filetype plugin indent on
+syntax on
+
 set shortmess=I
 set showcmd
-
-set number
-set numberwidth=1
-hi LineNr ctermfg=8
-set cursorline
-hi CursorLine cterm=NONE
-hi CursorLineNr cterm=bold ctermfg=15
 
 set laststatus=2
 hi StatusLine
@@ -24,9 +20,6 @@ set statusline+=\%f "filename
 set statusline+=\%m "modified
 set statusline+=%= "alignment
 set statusline+=\%l:%c "line:col
-
-"set backupdir=~/.vim/backup//
-"set directory=~/.vim/swp//
 
 " netrw
 let g:netrw_banner = 0
