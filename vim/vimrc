@@ -6,6 +6,7 @@ syntax on
 set shortmess=I
 set showcmd
 
+" statusline
 set laststatus=2
 hi StatusLine
     \ cterm=NONE
@@ -28,6 +29,9 @@ let g:netrw_browse_split = 4
 let g:netrw_winsize = 25
 
 " custom
-nnoremap <Leader>O O<esc>
-nnoremap <Leader>o o<esc>
+nnoremap <Leader>wq :wq<Enter> " compose save/quit
+
+nnoremap <Leader>O O<esc>j " add blank line above w/o insert
+nnoremap <Leader>o o<esc>k " add blank line below w/o insert
+
 nnoremap <Leader>w <C-W>
