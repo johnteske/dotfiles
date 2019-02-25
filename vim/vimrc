@@ -1,7 +1,15 @@
 let mapleader=" "
+let maplocalleader=mapleader
 
-filetype plugin indent on
+set nocompatible
+filetype plugin on
 syntax on
+
+set path+=**
+
+set softtabstop=2
+  \ shiftwidth=2
+  \ expandtab
 
 set shortmess=I
 set showcmd
@@ -9,33 +17,41 @@ set showcmd
 " statusline
 set laststatus=2
 hi StatusLine
-    \ cterm=NONE
-    \ ctermfg=15
-    \ ctermbg=8
+  \ cterm=NONE
+  \ ctermfg=15
+  \ ctermbg=8
 hi StatusLineNC
-    \ cterm=NONE
-    \ ctermfg=15
-    \ ctermbg=NONE
+  \ cterm=NONE
+  \ ctermfg=15
+  \ ctermbg=NONE
 set statusline=
-set statusline+=\%f "filename
-set statusline+=\%m "modified
-set statusline+=%= "alignment
-set statusline+=\%l:%c "line:col
+set statusline+=\%f " filename
+set statusline+=\%m " modified
+set statusline+=%= " alignment
+set statusline+=\%l:%c " line:col
 
 " netrw
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4
-let g:netrw_winsize = 25
+let g:netrw_banner=0
+let g:netrw_liststyle=3
+let g:netrw_browse_split=4
+let g:netrw_winsize=25
 
 " custom
 
 " enter command mode
-nnoremap <Leader><Leader> :
+nnoremap <leader><leader> :
 
-nnoremap <Leader>wq :wq<Enter> " compose save/quit
+nnoremap <leader>f :find<space>
 
-nnoremap <Leader>O O<esc>j " add blank line above w/o insert
-nnoremap <Leader>o o<esc>k " add blank line below w/o insert
+nnoremap <leader>wq :wq<Enter> " compose save/quit
 
-nnoremap <Leader>w <C-W>
+nnoremap <leader>O O<esc>j " add blank line above w/o insert
+nnoremap <leader>o o<esc>k " add blank line below w/o insert
+
+nnoremap <leader>w <C-W>
+
+nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel " wrap in single quotes
+nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel " wrap in double quotes
+
+"
+autocmd FileType javascript nnoremap <buffer> <localleader>/ I//<space><esc>
