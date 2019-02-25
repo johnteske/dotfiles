@@ -14,6 +14,7 @@ bak_lns ~/.aliases ~/dotfiles/bash/aliases
 bak_lns ~/.prompt ~/dotfiles/bash/prompt
 bak_lns ~/.git_utils ~/dotfiles/bash/git_utils
 
+bak_lns ~/.tmux.conf ~/dotfiles/tmux/tmux.conf
 bak_lns ~/.vimrc ~/dotfiles/vim/vimrc
 
 if [ "$INSTALL_ENV" == "linux" ]; then
