@@ -1,25 +1,30 @@
 --- Keys
-local paw = {"cmd", "alt", "ctrl"}
+local claw = {"cmd", "alt", "ctrl"}
 
 --- Window management
+hs.window.animationDuration = 0
+
 local split = require("split")
 
-hs.hotkey.bind(paw, "Up", function()
+hs.hotkey.bind(claw, "Up", function()
     split(hs.window.focusedWindow(), 0, 0, 1, 1)
 end)
 
-hs.hotkey.bind(paw, "Left", function()
+hs.hotkey.bind(claw, "Left", function()
     split(hs.window.focusedWindow(), 0, 0, 0.5, 1)
 end)
 
-hs.hotkey.bind(paw, "Right", function()
+hs.hotkey.bind(claw, "Right", function()
     split(hs.window.focusedWindow(), 0.5, 0, 0.5, 1)
 end)
 
--- Gnome-like terminal new window shortcut
-hs.hotkey.bind({"cmd", "ctrl"}, "T", function()
+-- Launch new iTerm2 window
+local function termWindow ()
     hs.osascript.applescript('tell application "iTerm2" to create window with default profile')
-end)
+end
+
+-- Gnome-like terminal window shortcut
+hs.hotkey.bind(claw, "T", termWindow)
 
 -- Audio
 local function muteAll ()
@@ -47,7 +52,7 @@ hs.alert.defaultStyle.radius = 5
 hs.alert.defaultStyle.strokeColor = { white = 0, alpha = 0 }
 hs.alert.defaultStyle.textSize = 24
 
-hs.hotkey.bind(paw, "R", function()
+hs.hotkey.bind(claw, "R", function()
     hs.reload()
 end)
 
