@@ -20,7 +20,7 @@ end)
 
 -- Launch new iTerm2 window
 local function termWindow ()
-    hs.osascript.applescript('tell application "iTerm2" to create window with default profile')
+    hs.osascript.applescript('tell application "iTerm" to create window with default profile')
 end
 
 -- Gnome-like terminal window shortcut
