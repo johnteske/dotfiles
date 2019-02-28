@@ -18,6 +18,16 @@ hs.hotkey.bind(claw, "Right", function()
     split(hs.window.focusedWindow(), 0.5, 0, 0.5, 1)
 end)
 
+hs.hotkey.bind(claw, "Down", function()
+    local win = hs.window.focusedWindow()
+    local frame = win:frame()
+    local bounds = win:screen():frame()
+
+    frame.x = (bounds.w * 0.5) - (frame.w * 0.5)
+    frame.y = (bounds.h * 0.5) - (frame.h * 0.5)
+    win:setFrame(frame)
+end)
+
 -- Launch new iTerm2 window
 local function termWindow ()
     hs.osascript.applescript('tell application "iTerm" to create window with default profile')
