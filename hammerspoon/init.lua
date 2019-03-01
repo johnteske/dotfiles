@@ -46,8 +46,8 @@ audiodeviceWatcher("setDevCallback", muteAll)
 audiodeviceWatcher("start")
 
 -- Local-specific config
-local _, err = pcall(require, "local")
-if err then print(err) end
+local localLoaded, localErr = pcall(require, "local")
+if not localLoaded then print(localErr) end
 
 -- Config
 hs.alert.defaultStyle.radius = 5
@@ -58,4 +58,5 @@ hs.hotkey.bind(claw, "R", function()
     hs.reload()
 end)
 
-hs.notify.show("Hammerspoon config loaded", "", "")
+local info = localLoaded and "Loaded local.lua" or "Error loading local.lua"
+hs.notify.show("Hammerspoon config loaded", info, "")
