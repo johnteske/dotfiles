@@ -1,30 +1,28 @@
---- Keys
+-- Keys
 local claw = {"cmd", "alt", "ctrl"}
 
---- Window management
+-- Window management
 hs.window.animationDuration = 0
 
-local split = require("split")
-
 hs.hotkey.bind(claw, "Up", function()
-    split(hs.window.focusedWindow(), 0, 0, 1, 1)
+    hs.window.focusedWindow():moveToUnit'[0,0,100,100]'
 end)
 
 hs.hotkey.bind(claw, "Left", function()
-    split(hs.window.focusedWindow(), 0, 0, 0.5, 1)
+    hs.window.focusedWindow():moveToUnit'[0,0,50,100]'
 end)
 
 hs.hotkey.bind(claw, "Right", function()
-    split(hs.window.focusedWindow(), 0.5, 0, 0.5, 1)
+    hs.window.focusedWindow():moveToUnit'[50,0,100,100]'
 end)
 
 hs.hotkey.bind(claw, "Down", function()
     local win = hs.window.focusedWindow()
     local frame = win:frame()
-    local bounds = win:screen():frame()
+    local center = win:screen():frame().center
 
-    frame.x = (bounds.w * 0.5) - (frame.w * 0.5)
-    frame.y = (bounds.h * 0.5) - (frame.h * 0.5)
+    frame.x = center.x - (frame.w * 0.5)
+    frame.y = center.y - (frame.h * 0.5)
     win:setFrame(frame)
 end)
 
