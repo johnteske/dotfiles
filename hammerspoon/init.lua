@@ -17,13 +17,7 @@ hs.hotkey.bind(claw, "Right", function()
 end)
 
 hs.hotkey.bind(claw, "Down", function()
-    local win = hs.window.focusedWindow()
-    local frame = win:frame()
-    local center = win:screen():frame().center
-
-    frame.x = center.x - (frame.w * 0.5)
-    frame.y = center.y - (frame.h * 0.5)
-    win:setFrame(frame)
+    hs.window.focusedWindow():centerOnScreen()
 end)
 
 -- Launch new iTerm2 window
