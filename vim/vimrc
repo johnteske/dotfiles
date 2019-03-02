@@ -30,6 +30,9 @@ set statusline+=\%m " modified
 set statusline+=%= " alignment
 set statusline+=\%l:%c " line:col
 
+" SignColumn
+highlight SignColumn ctermbg=NONE
+
 " netrw
 let g:netrw_banner=0
 let g:netrw_liststyle=3
