@@ -58,4 +58,10 @@ nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel " wrap in double quotes
 
 "
 autocmd FileType javascript nnoremap <buffer> <localleader>/ I//<space><esc>
+
+autocmd FileType gitcommit
+  \ set textwidth=72 |
+  \ set colorcolumn+=73 |
+  \ set colorcolumn+=51
+
 source ~/dotfiles/vim/tabcomplete
