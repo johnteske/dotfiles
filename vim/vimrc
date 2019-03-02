@@ -59,5 +59,6 @@ nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel " wrap in double quotes
 "
 autocmd FileType javascript nnoremap <buffer> <localleader>/ I//<space><esc>
 
+source ~/dotfiles/vim/commentline.vim
 source ~/dotfiles/vim/gitcommit.vim
 source ~/dotfiles/vim/tabcomplete.vim
