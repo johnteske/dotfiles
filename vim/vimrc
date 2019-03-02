@@ -31,3 +31,4 @@ source ~/dotfiles/vim/commentline.vim
 source ~/dotfiles/vim/gitcommit.vim
 source ~/dotfiles/vim/statusline.vim
 source ~/dotfiles/vim/tabcomplete.vim
+source ~/dotfiles/vim/trainer.vim
