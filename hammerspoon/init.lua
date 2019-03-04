@@ -60,3 +60,10 @@ end)
 
 local info = localLoaded and "Loaded local.lua" or "Error loading local.lua"
 hs.notify.show("Hammerspoon config loaded", info, "")
+
+hs.osascript.applescript([[
+    tell application "iTerm"
+        set newWindow to (create window with default profile)
+        tell current session of newWindow to write text "clear; neofetch"
+    end tell
+]])
