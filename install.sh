@@ -38,7 +38,7 @@ if [ "$INSTALL_ENV" == "osx" ]; then
 
     for f in ~/dotfiles/hammerspoon/*.lua; do
         file=${f##*/}
-        ln -sf $f ~/.hammerspoon/$file
+        ln -sf "$f" "$HOME/.hammerspoon/$file"
     done
 fi
 
