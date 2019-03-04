@@ -47,20 +47,17 @@ audiodeviceWatcher("start")
 
 -- Local-specific config
 local localLoaded, localErr = pcall(require, "local")
-if not localLoaded then print(localErr) end
+if not localLoaded then
+    print(localErr)
+    hs.notify.show("Hammerspoon config loaded", "Error loading local.lua", "")
+end
 
 -- Config
-hs.alert.defaultStyle.radius = 5
-hs.alert.defaultStyle.strokeColor = { white = 0, alpha = 0 }
-hs.alert.defaultStyle.textSize = 24
+-- hs.alert.defaultStyle.radius = 5
+-- hs.alert.defaultStyle.strokeColor = { white = 0, alpha = 0 }
+-- hs.alert.defaultStyle.textSize = 24
 
-hs.hotkey.bind(claw, "R", function()
-    hs.reload()
-end)
-
-local info = localLoaded and "Loaded local.lua" or "Error loading local.lua"
-hs.notify.show("Hammerspoon config loaded", info, "")
-
+-- Open terminal window with device info on load
 hs.osascript.applescript([[
     tell application "iTerm"
         set newWindow to (create window with default profile)
