@@ -20,13 +20,24 @@ hs.hotkey.bind(claw, "Down", function()
     hs.window.focusedWindow():centerOnScreen()
 end)
 
--- Launch new iTerm2 window
-local function termWindow ()
+-- Gnome-like iTerm window shortcut
+hs.hotkey.bind(claw, "T", function ()
     hs.osascript.applescript('tell application "iTerm" to create window with default profile')
-end
+end)
 
--- Gnome-like terminal window shortcut
-hs.hotkey.bind(claw, "T", termWindow)
+-- Center new iTerm windows
+local wf = hs.window.filter
+wf.new{'iTerm2'}:subscribe(wf.windowCreated, function ()
+    hs.window.focusedWindow():centerOnScreen()
+end)
+
+-- Open iTerm window with device info on load
+hs.osascript.applescript([[
+    tell application "iTerm"
+        set newWindow to (create window with default profile)
+        tell current session of newWindow to write text "clear; echo -e '\n'; neofetch"
+    end tell
+]])
 
 -- Audio
 local function muteAll ()
@@ -51,16 +62,3 @@ if not localLoaded then
     print(localErr)
     hs.notify.show("Hammerspoon config loaded", "Error loading local.lua", "")
 end
-
--- Config
--- hs.alert.defaultStyle.radius = 5
--- hs.alert.defaultStyle.strokeColor = { white = 0, alpha = 0 }
--- hs.alert.defaultStyle.textSize = 24
-
--- Open terminal window with device info on load
-hs.osascript.applescript([[
-    tell application "iTerm"
-        set newWindow to (create window with default profile)
-        tell current session of newWindow to write text "clear; neofetch"
-    end tell
-]])
