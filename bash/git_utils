@@ -9,21 +9,18 @@ git-branch-current () {
 
 gp () {
     local tmp="./TMP_GIT_PUSH"
-    git push &> "$tmp" || \
-        (
-        cat "$tmp"
-        # If git suggests to push and set upstream, give a choice to run
-        push_set="git push --set-upstream origin $(git-branch-current)"
-        if grep -q "${push_set}" "$tmp"; then
-            local answer
-            echo -n "Push and set the remote as upstream? [y/N] "
-            read -r answer
-            if [[ $answer == "y" ]] && [[ $answer == "Y" ]]; then
-                $push_set
-            fi
-        fi
-        )
+    git push 2>&1 | tee "$tmp"
 
+    # If git suggests to push and set upstream, give a choice to run
+    push_set="git push --set-upstream origin $(git-branch-current)"
+    if grep -q "${push_set}" "$tmp"; then
+        local answer
+        echo -n "Push and set the remote as upstream? [y/N] "
+        read -r answer
+        if [[ $answer == "y" ]] || [[ $answer == "Y" ]]; then
+            $push_set
+        fi
+     fi
      rm "$tmp"
 }
 
