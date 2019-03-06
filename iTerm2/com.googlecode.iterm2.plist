@@ -14,17 +14,23 @@
 	<dict/>
 	<key>Default Bookmark Guid</key>
 	<string>B48DEBBA-A7CE-46C2-889F-40C5DBE28E90</string>
+	<key>DimInactiveSplitPanes</key>
+	<false/>
+	<key>EnableProxyIcon</key>
+	<false/>
+	<key>FocusFollowsMouse</key>
+	<false/>
+	<key>HideScrollbar</key>
+	<false/>
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
+	<key>JobName</key>
+	<false/>
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
 	<key>NSNavLastRootDirectory</key>
 	<string>~/Desktop</string>
-	<key>NSNavLastUserSetHideExtensionButtonState</key>
-	<true/>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
-	<string>{712, 448}</string>
-	<key>NSNavPanelExpandedSizeForSaveMode</key>
 	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
@@ -62,46 +68,28 @@
 		<key>TB Is Shown</key>
 		<integer>1</integer>
 	</dict>
-	<key>NSTouchBarConfig: regular</key>
-	<dict>
-		<key>CurrentItems</key>
-		<array>
-			<string>NSTouchBarItemIdentifierOtherItemsProxy</string>
-		</array>
-		<key>DefaultItems</key>
-		<array>
-			<string>iTermTouchBarIdentifierManPage</string>
-			<string>iTermTouchBarIdentifierColorPreset</string>
-			<string>iTermTouchBarIdentifierFunctionKeys</string>
-			<string>NSTouchBarItemIdentifierFlexibleSpace</string>
-			<string>NSTouchBarItemIdentifierOtherItemsProxy</string>
-			<string>iTermTouchBarIdentifierAddMark</string>
-			<string>iTermTouchBarIdentifierPreviousMark</string>
-			<string>iTermTouchBarIdentifierNextMark</string>
-		</array>
-	</dict>
-	<key>NSWindow Frame NSFontPanel</key>
-	<string>1180 33 445 77 0 0 1680 1027 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>650 498 620 392 0 0 1920 1057 </string>
-	<key>NSWindow Frame SessionsPreferences</key>
-	<string>269 126 606 469 0 0 1920 1057 </string>
+	<string>410 365 620 392 0 0 1440 878 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>587 331 796 486 0 0 1680 1027 </string>
+	<string>322 235 796 486 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>423 0 834 1027 0 0 1680 1027 </string>
+	<string>395 237 650 427 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>960 630 665 427 0 0 1920 1057 </string>
+	<string>395 237 650 427 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>0 600 650 427 0 0 1680 1027 </string>
+	<string>395 237 650 427 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>690 442 650 427 0 0 1680 1027 </string>
+	<string>395 237 650 427 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
-	<string>515 312 650 427 0 0 1680 1027 </string>
+	<string>395 237 650 427 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 5</key>
-	<string>358 522 650 427 0 0 1680 1027 </string>
+	<string>395 237 650 427 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 6</key>
-	<string>515 312 650 427 0 0 1680 1027 </string>
+	<string>281 399 650 427 0 0 1440 878 </string>
+	<key>NSWindow Frame iTerm Window 7</key>
+	<string>344 312 650 427 0 0 1440 878 </string>
+	<key>NSWindow Frame iTerm Window 8</key>
+	<string>349 311 650 427 0 0 1440 878 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -320,7 +308,7 @@
 				<real>1</real>
 			</dict>
 			<key>BM Growl</key>
-			<true/>
+			<false/>
 			<key>Background Color</key>
 			<dict>
 				<key>Alpha Component</key>
@@ -369,7 +357,7 @@
 			<key>Character Encoding</key>
 			<integer>4</integer>
 			<key>Close Sessions On End</key>
-			<true/>
+			<false/>
 			<key>Columns</key>
 			<integer>80</integer>
 			<key>Command</key>
@@ -800,7 +788,7 @@
 			<key>Shortcut</key>
 			<string></string>
 			<key>Silence Bell</key>
-			<false/>
+			<true/>
 			<key>Sync Title</key>
 			<false/>
 			<key>Tab Color</key>
