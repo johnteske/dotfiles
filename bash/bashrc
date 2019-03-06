@@ -1,5 +1,5 @@
 # Load
-for file in ~/.{aliases,prompt,git_utils,bashrc.linux,bash_local}; do
+for file in ~/.{aliases,prompt,git_utils,fuzzy,bashrc.linux,bash_local}; do
     [ -r "$file" ] && source "$file"
 done; unset file
 
