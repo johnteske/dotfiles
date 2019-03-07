@@ -1,6 +1,4 @@
 #!/bin/bash
-#
-# .prompt
 
 display_filtered_user () {
     local u

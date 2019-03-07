@@ -1,6 +1,4 @@
 #!/bin/bash
-#
-# install.sh
 
 INSTALL_ENV=$1
 
@@ -9,10 +7,9 @@ bak_lns () {
     ln -sf "$2" "$1"
 }
 
-bak_lns ~/.bashrc ~/dotfiles/bash/bashrc
-bak_lns ~/.aliases ~/dotfiles/bash/aliases
-bak_lns ~/.prompt ~/dotfiles/bash/prompt
-bak_lns ~/.git_utils ~/dotfiles/bash/git_utils
+for file in ~/dotfiles/bash/*.bash; do
+  bak_lns ~/."$(basename "$file" .bash)" "$file"
+done
 
 bak_lns ~/.tmux.conf ~/dotfiles/tmux/tmux.conf
 bak_lns ~/.vimrc ~/dotfiles/vim/vimrc
