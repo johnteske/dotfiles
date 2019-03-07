@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # General
 alias ..="cd .."
 alias ll="ls -a"
