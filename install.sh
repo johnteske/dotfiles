@@ -7,6 +7,8 @@ bak_lns () {
     ln -sf "$2" "$1"
 }
 
+bak_lns ~/.bashrc ~/dotfiles/bash/bashrc
+
 for file in ~/dotfiles/bash/*.bash; do
   bak_lns ~/."$(basename "$file" .bash)" "$file"
 done
