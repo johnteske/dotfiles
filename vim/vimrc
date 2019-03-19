@@ -8,7 +8,7 @@ filetype plugin on
 syntax on
 
 set path+=**
-set shortmess=I
+set shortmess=Iat
 set showcmd
 set softtabstop=2
   \ shiftwidth=2
@@ -21,6 +21,13 @@ highlight SignColumn ctermbg=NONE
 nnoremap <leader>O O<esc>j
 nnoremap <leader>o o<esc>k
 
+" substitute current word
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+
 source ~/dotfiles/vim/commentline.vim
 source ~/dotfiles/vim/statusline.vim
 source ~/dotfiles/vim/tabcomplete.vim
+
+" fuzzy finder
+set rtp+=/usr/local/opt/fzf
+nnoremap <leader>f :FZF<CR>
