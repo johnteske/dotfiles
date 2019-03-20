@@ -10,7 +10,7 @@ bak_lns () {
 bak_lns ~/.bashrc ~/dotfiles/bash/bashrc
 
 for file in ~/dotfiles/bash/*.bash; do
-  bak_lns ~/."$(basename "$file" .bash)" "$file"
+  bak_lns "$HOME/.$(basename "$file" .bash).bash" "$file"
 done
 
 bak_lns ~/.tmux.conf ~/dotfiles/tmux/tmux.conf
