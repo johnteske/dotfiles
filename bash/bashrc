@@ -1,6 +1,15 @@
 # Load
-for file in ~/.{aliases,prompt,git_utils,fuzzy,bashrc.linux,bash_local}; do
-    [ -r "$file" ] && source "$file"
+files=(
+  aliases.bash
+  prompt.bash
+  git-completion.bash
+  git_utils.bash
+  fuzzy.bash
+  bashrc.linux
+  bash_local)
+
+for file in "${files[@]}"; do
+  [ -r "$HOME/.$file" ] && source "$HOME/.$file"
 done; unset file
 
 # Editor
