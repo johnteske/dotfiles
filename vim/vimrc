@@ -13,6 +13,8 @@ set showcmd
 set softtabstop=2
   \ shiftwidth=2
   \ expandtab
+set ignorecase
+set smartcase
 
 " SignColumn
 highlight SignColumn ctermbg=NONE
