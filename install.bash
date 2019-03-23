@@ -14,7 +14,10 @@ for file in ~/dotfiles/bash/*.bash; do
 done
 
 bak_lns ~/.tmux.conf ~/dotfiles/tmux/tmux.conf
+
 bak_lns ~/.vimrc ~/dotfiles/vim/vimrc
+mkdir -p ~/.vim/colors
+bak_lns ~/.vim/colors/jt.vim ~/dotfiles/vim/colors/jt.vim
 
 if [ "$INSTALL_ENV" == "linux" ]; then
     bak_lns ~/.bashrc.linux ~/dotfiles/bash/bashrc.linux

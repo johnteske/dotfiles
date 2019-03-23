@@ -6,6 +6,7 @@ let loaded_netrwPlugin = 1 " disable netrw
 
 filetype plugin on
 syntax on
+colorscheme jt
 
 set path+=**
 set shortmess=Iat
@@ -15,9 +16,6 @@ set softtabstop=2
   \ expandtab
 set ignorecase
 set smartcase
-
-" SignColumn
-highlight SignColumn ctermbg=NONE
 
 " add blank lines above and below, without insert
 nnoremap <leader>O O<esc>j
