@@ -1,14 +1,10 @@
 set laststatus=2
-hi StatusLine
-  \ cterm=NONE
-  \ ctermfg=15
-  \ ctermbg=8
-hi StatusLineNC
-  \ cterm=NONE
-  \ ctermfg=15
-  \ ctermbg=NONE
+
 set statusline=
+set statusline+=%1* " User1 highlight
 set statusline+=\%f " filename
-set statusline+=\%m " modified
+set statusline+=%2* " User2 highlight
+set statusline+=\ %m " modified
 set statusline+=%= " alignment
+set statusline+=%3* " User3 highlight
 set statusline+=\%l:%c " line:col
