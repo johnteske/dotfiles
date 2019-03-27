@@ -5,6 +5,7 @@ alias ..="cd .."
 alias ll="ls -a"
 
 # git
+alias g.="cd \$(git rev-parse --show-toplevel)"
 alias ga="git add -p"
 alias gs="git status"
 alias gd="git diff"
