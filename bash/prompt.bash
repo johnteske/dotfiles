@@ -1,19 +1,22 @@
 #!/bin/bash
 
-__jt_display_filtered_user () {
+# delimiter
+__jt_prompt_d=":"
+
+__jt_prompt_filtered_user () {
   local u
   u=$(whoami)
   case $u in
     johnteske) u="" ;;
-    *) u="$u:" ;;
+    *) u="$u$__jt_prompt_d" ;;
   esac
   echo $u
 }
 
-__jt_display_git_branch () {
+__jt_prompt_git_branch () {
   local BRANCH
   BRANCH=$(__jt_git_branch)
-  [[ -n $BRANCH ]] && echo ":$BRANCH"
+  [[ -n $BRANCH ]] && echo "$__jt_prompt_d$BRANCH"
 }
 
-PS1="$(__jt_display_filtered_user)\W\$(__jt_display_git_branch)\$ "
+PS1="$(__jt_prompt_filtered_user)\W\$(__jt_prompt_git_branch)\$ "
