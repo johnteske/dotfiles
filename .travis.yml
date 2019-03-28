@@ -4,7 +4,7 @@ os:
   - linux
   - osx
 
-script: bash install.sh "$TRAVIS_OS_NAME"
+script: bash install.bash "$TRAVIS_OS_NAME"
 
 # alias "ll" should not throw an error after install
 after_script: source ~/.bashrc && ll
