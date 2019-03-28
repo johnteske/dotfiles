@@ -1,6 +1,6 @@
 #!/bin/bash
 
-display_filtered_user () {
+__jt_display_filtered_user () {
   local u
   u=$(whoami)
   case $u in
@@ -10,14 +10,10 @@ display_filtered_user () {
   echo $u
 }
 
-get_git_branch () {
-  git rev-parse --abbrev-ref HEAD
-}
-
-display_git_branch () {
+__jt_display_git_branch () {
   local BRANCH
-  BRANCH=$(get_git_branch)
+  BRANCH=$(__jt_git_branch)
   [[ -n $BRANCH ]] && echo ":$BRANCH"
 }
 
-PS1="$(display_filtered_user)\W\$(display_git_branch)\$ "
+PS1="$(__jt_display_filtered_user)\W\$(__jt_display_git_branch)\$ "
