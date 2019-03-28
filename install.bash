@@ -23,13 +23,8 @@ if [ "$INSTALL_ENV" == "linux" ]; then
     bak_lns ~/.bashrc.linux ~/dotfiles/bash/bashrc.linux
 fi
 
-if [ "$INSTALL_ENV" != "osx" ]; then
-    source ~/.bashrc
-fi
-
 if [ "$INSTALL_ENV" == "osx" ]; then
     bak_lns ~/.bash_profile ~/dotfiles/bash/bash_profile.osx
-    source ~/.bash_profile
 
     # vscodevim.vim
     defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
@@ -39,10 +34,3 @@ if [ "$INSTALL_ENV" == "osx" ]; then
         ln -sf "$f" "$HOME/.hammerspoon/$file"
     done
 fi
-
-#if [ ! -f ~/.git-completion.bash ]; then
-#    echo -n "Install git completion? [Y/n] "; read answer
-#    if [[ $answer != "n" ]] && [[ $answer != "N" ]]; then
-#        download_to_file https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash ~/.git-completion.bash && source ~/.git-completion.bash
-#    fi
-#fi
