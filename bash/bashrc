@@ -1,9 +1,9 @@
 # Load
 files=(
   aliases.bash
-  prompt.bash
   git-completion.bash
   git_utils.bash
+  prompt.bash
   fuzzy.bash
   bashrc.linux
   bash_local)
