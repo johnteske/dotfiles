@@ -5,8 +5,7 @@ function! s:NoRemap(mode, ft, str)
 endfunction
 
 function! s:MapCommentLine(fileType, lineComment)
-  call s:NoRemap('n', a:fileType, a:lineComment)
-  call s:NoRemap('v', a:fileType, a:lineComment)
+  call map(['n', 'v'], 's:NoRemap(v:val, a:fileType, a:lineComment)')
 endfunction
 
 call s:MapCommentLine('javascript', '//')
