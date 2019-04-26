@@ -27,8 +27,8 @@ end)
 
 -- Center new iTerm windows
 local wf = hs.window.filter
-wf.new{'iTerm2'}:subscribe(wf.windowCreated, function ()
-    hs.window.focusedWindow():centerOnScreen()
+wf.new{'iTerm2'}:subscribe(wf.windowCreated, function (w)
+    w:centerOnScreen()
 end)
 
 -- Open iTerm window with device info on load
