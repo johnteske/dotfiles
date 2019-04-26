@@ -24,7 +24,7 @@ nnoremap <leader>O O<esc>j
 nnoremap <leader>o o<esc>k
 
 " substitute current word
-nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+nnoremap <leader>s :%s/\<<C-r><C-w>\>/
 
 set hlsearch
 " double-esc to disable hlsearch
@@ -37,3 +37,6 @@ source ~/dotfiles/vim/tabcomplete.vim
 " fuzzy finder
 set rtp+=/usr/local/opt/fzf
 nnoremap <leader>f :FZF<CR>
+
+" grep
+nnoremap <leader>g :grep -R .<left><left><space>
