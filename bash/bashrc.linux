@@ -1,2 +1,2 @@
 # Map capslock to additional escape key
-setxkbmap -option caps:escape
+setxkbmap -layout us -option ctrl:nocaps
