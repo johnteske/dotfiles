@@ -16,9 +16,6 @@ set softtabstop=2
 set ignorecase
 set smartcase
 
-" quick save
-nnoremap <leader>w :w<return>
-
 " add blank lines above and below, without insert
 nnoremap <leader>O O<esc>j
 nnoremap <leader>o o<esc>k
