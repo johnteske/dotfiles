@@ -28,12 +28,6 @@ set hlsearch
 nnoremap <esc><esc> :silent! nohls<cr>
 
 source ~/dotfiles/vim/commentline.vim
+source ~/dotfiles/vim/project.vim
 source ~/dotfiles/vim/statusline.vim
 source ~/dotfiles/vim/tabcomplete.vim
-
-" fuzzy finder
-set rtp+=/usr/local/opt/fzf
-nnoremap <leader>f :FZF<CR>
-
-" grep
-nnoremap <leader>g :grep -R .<left><left><space>
