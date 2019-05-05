@@ -11,6 +11,6 @@ hi StatusLineNC
   \ ctermfg=7
   \ ctermbg=NONE
 
-hi User1 ctermfg=7 ctermbg=NONE
-hi User2 ctermfg=1 ctermbg=NONE
-hi User3 ctermfg=7 ctermbg=NONE
+hi User1 ctermfg=7 ctermbg=8
+hi User2 ctermfg=1 ctermbg=8
+hi User3 ctermfg=7 ctermbg=8
