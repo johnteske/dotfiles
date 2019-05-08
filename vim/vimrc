@@ -23,6 +23,10 @@ nnoremap <leader>o o<esc>k
 " substitute current word
 nnoremap <leader>s :%s/\<<C-r><C-w>\>/
 
+" split
+nnoremap <leader>w <C-w>
+set fillchars+=vert:│
+
 set hlsearch
 " double-esc to disable hlsearch
 nnoremap <esc><esc> :silent! nohls<cr>
