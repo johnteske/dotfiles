@@ -29,9 +29,6 @@ if [ "$INSTALL_ENV" == "osx" ]; then
     # vscodevim.vim
     defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
-    mkdir -p "$HOME/.hammerspoon"
-    for f in ~/dotfiles/hammerspoon/*.lua; do
-        file=${f##*/}
-        ln -sf "$f" "$HOME/.hammerspoon/$file"
-    done
+    bak_lns ~/.chunkwmrc ~/dotfiles/chunkwmrc
+    bak_lns ~/.skhdrc ~/dotfiles/skhdrc
 fi
