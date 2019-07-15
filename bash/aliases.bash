@@ -3,6 +3,9 @@
 # General
 alias ..="cd .."
 alias ll="ls -a"
+function cl() {
+  cd "$1" && ll
+}
 
 # git
 alias g.="cd \$(git rev-parse --show-toplevel)"
