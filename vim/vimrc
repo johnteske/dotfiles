@@ -29,6 +29,9 @@ nnoremap <leader><esc> :silent! nohls<cr>
 
 inoremap kj <esc>
 
+nnoremap <leader>i i_<esc>r
+nnoremap <leader>a a_<esc>r
+
 source ~/dotfiles/vim/commentline.vim
 source ~/dotfiles/vim/project.vim
 source ~/dotfiles/vim/split.vim
