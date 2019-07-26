@@ -18,6 +18,7 @@ ctrl + alt + cmd - l : chunkc tiling::window --focus east
 
 # Set layout
 ctrl + alt + cmd - f : chunkc tiling::desktop --layout float
+ctrl + alt + cmd - m : chunkc tiling::desktop --layout monocle
 ctrl + alt + cmd - c : \
     chunkc tiling::desktop --layout float && \
     chunkc tiling::desktop --layout bsp
