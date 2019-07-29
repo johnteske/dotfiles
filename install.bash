@@ -26,9 +26,6 @@ fi
 if [ "$INSTALL_ENV" == "osx" ]; then
     bak_lns ~/.bash_profile ~/dotfiles/bash/bash_profile.osx
 
-    # vscodevim.vim
-    defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
-
     bak_lns ~/.chunkwmrc ~/dotfiles/chunkwmrc
     bak_lns ~/.skhdrc ~/dotfiles/skhdrc
 fi
