@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run:
           name: Install
-          command: bash install.bash && pwd && ls -al ~/
+          command: bash install.bash
       - run:
           name: Test ll alias
-          command: pwd && ls -al ~/ && source ~/.bashrc && ll
+          command: pwd && ls -al ~/ cat && ~/.bashrc && source ~/.bashrc && ll
