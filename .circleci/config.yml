@@ -9,8 +9,8 @@ jobs:
 
       - run:
           name: Install
-          command: bash install.bash && ls ~/
+          command: bash install.bash && pwd && ls ~/
 
-      - run:
-          name: Test ll alias
-          command: source ~/.bashrc && ll
+#      - run:
+#          name: Test ll alias
+#          command: source ~/.bashrc && ll
