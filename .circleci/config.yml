@@ -11,4 +11,4 @@ jobs:
           command: bash install.bash && pwd && ls -al ~/
       - run:
           name: Test ll alias
-          command: source ~/.bashrc && ll
+          command: pwd && ls -al ~/ && source ~/.bashrc && ll
