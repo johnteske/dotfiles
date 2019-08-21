@@ -9,7 +9,7 @@ jobs:
 
       - run:
           name: Install
-          command: bash install.bash
+          command: bash install.bash && ls ~/
 
       - run:
           name: Test ll alias
