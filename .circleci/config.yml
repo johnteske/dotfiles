@@ -3,14 +3,12 @@ jobs:
   build:
     docker:
       - image: debian:stretch
-
+    working_directory: ~/dotfiles
     steps:
       - checkout
-
       - run:
           name: Install
           command: bash install.bash && pwd && ls -al ~/
-
-#      - run:
-#          name: Test ll alias
-#          command: source ~/.bashrc && ll
+      - run:
+          name: Test ll alias
+          command: source ~/.bashrc && ll
