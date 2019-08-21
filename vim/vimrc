@@ -24,7 +24,6 @@ nnoremap <leader>o o<esc>k
 nnoremap <leader>s :%s/\<<C-r><C-w>\>/
 
 set hlsearch
-" double-esc to disable hlsearch
 nnoremap <leader><esc> :silent! nohls<cr>
 
 inoremap kj <esc>
