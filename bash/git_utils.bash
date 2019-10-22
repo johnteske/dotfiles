@@ -1,7 +1,9 @@
 #!/bin/bash
 
 # Git completion
-[ -f ~/.git-completion.bash ] && source ~/.git-completion.bash
+if [ "$SHELL" = "/bin/bash" ]; then
+  [ -f ~/.git-completion.bash ] && source ~/.git-completion.bash
+fi
 
 __jt_git_branch () {
     git rev-parse --abbrev-ref HEAD 2> /dev/null
