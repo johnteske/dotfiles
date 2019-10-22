@@ -1,7 +1,6 @@
 # Load
 files=(
   aliases.bash
-  git-completion.bash
   git_utils.bash
   prompt.bash
   fuzzy.bash
