@@ -2,7 +2,7 @@
 
 export FZF_DEFAULT_OPTS='--no-mouse'
 
-if builtin type -P fd &> /dev/null; then
+if command -v fd &> /dev/null; then
   export FZF_DEFAULT_COMMAND='fd --type f'
 fi
 
