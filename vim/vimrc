@@ -15,6 +15,7 @@ set softtabstop=2
   \ expandtab
 set ignorecase
 set smartcase
+set hidden " allow buffers to be unsaved when switching
 
 " add blank lines above and below, without insert
 nnoremap <leader>O O<esc>j
