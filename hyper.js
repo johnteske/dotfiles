@@ -42,14 +42,14 @@ module.exports = {
     cursorBlink: false,
 
     // color of the text
-    foregroundColor: '#ffffff',
+    foregroundColor: WHITE,
 
     // terminal background color
     // opacity is only supported on macOS
     backgroundColor: '#000000',
 
     // terminal selection color
-    selectionColor: 'rgba(248,28,229,0.3)',
+    selectionColor: WHITE,
 
     // border color (window, tabs)
     borderColor: '#333',
@@ -84,14 +84,14 @@ module.exports = {
       magenta: '#c78feb',
       cyan: '#7cc9c2',
       white: WHITE,
-//      lightBlack: '#686868',
-//      lightRed: '#FD6F6B',
-//      lightGreen: '#67F86F',
-//      lightYellow: '#FFFA72',
-//      lightBlue: '#6A76FB',
-//      lightMagenta: '#FD7CFC',
-//      lightCyan: '#68FDFE',
-//      lightWhite: '#FFFFFF',
+      lightBlack: BLACK,
+      lightRed: 'red',
+      lightGreen: 'green',
+      lightYellow: 'yellow',
+      lightBlue: 'blue',
+      lightMagenta: 'magenta',
+      lightCyan: 'cyan',
+      lightWhite: 'white',
     },
 
     // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
