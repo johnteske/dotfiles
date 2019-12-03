@@ -13,6 +13,8 @@ for file in ~/dotfiles/bash/*.bash; do
   bak_lns "$HOME/.$(basename "$file" .bash).bash" "$file"
 done
 
+bak_lns ~/.hyper.js ~/dotfiles/hyper.js
+
 bak_lns ~/.tmux.conf ~/dotfiles/tmux/tmux.conf
 
 bak_lns ~/.vimrc ~/dotfiles/vim/vimrc
