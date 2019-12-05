@@ -25,9 +25,4 @@ if [ "$INSTALL_ENV" == "linux" ]; then
     bak_lns ~/.bashrc.linux ~/dotfiles/bash/bashrc.linux
 fi
 
-if [ "$INSTALL_ENV" == "osx" ]; then
-    bak_lns ~/.bash_profile ~/dotfiles/bash/bash_profile.osx
-
-    bak_lns ~/.chunkwmrc ~/dotfiles/chunkwmrc
-    bak_lns ~/.skhdrc ~/dotfiles/skhdrc
-fi
+bak_lns ~/.zshrc "$dotlocals/zsh/zshrc.zsh"
