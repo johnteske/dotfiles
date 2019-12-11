@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export FZF_DEFAULT_OPTS='--no-mouse'
+export FZF_DEFAULT_OPTS='--no-mouse --color 16'
 
 if command -v fd &> /dev/null; then
   export FZF_DEFAULT_COMMAND='fd --type f'

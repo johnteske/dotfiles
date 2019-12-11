@@ -16,6 +16,7 @@ set softtabstop=2
 set ignorecase
 set smartcase
 set hidden " allow buffers to be unsaved when switching
+set t_Co=16 " set palette to 16 colors
 
 " add blank lines above and below, without insert
 nnoremap <leader>O O<esc>j
