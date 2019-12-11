@@ -25,4 +25,4 @@ if [ "$INSTALL_ENV" == "linux" ]; then
     bak_lns ~/.bashrc.linux ~/dotfiles/bash/bashrc.linux
 fi
 
-bak_lns ~/.zshrc "$dotlocals/zsh/zshrc.zsh"
+bak_lns ~/.zshrc ~/dotfiles/zsh/zshrc.zsh
