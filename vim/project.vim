@@ -3,7 +3,7 @@ if executable('fzf')
   set rtp+=/usr/local/opt/fzf
   nnoremap <leader>f :FZF!<CR>
 else
-  nnoremap <leader>f :echoerr 'fzf is not installed'<CR>
+  nnoremap <leader>f :e .<CR>:echom '''fzf'' is not installed. Using fallback.'<CR>
 endif
 
 " grep
