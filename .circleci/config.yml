@@ -4,6 +4,8 @@ jobs:
     docker:
       - image: debian:stretch
     working_directory: ~/dotfiles
+    environment:
+      BASH_ENV: ~/.bashrc
     steps:
       - checkout
       - run:
@@ -11,6 +13,4 @@ jobs:
           command: bash install.bash
       - run:
           name: Test
-          command: |
-            source bash/bashrc
-            type ll
+          command: type ll
