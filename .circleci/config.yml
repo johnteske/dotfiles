@@ -8,7 +8,8 @@ jobs:
       - checkout
       - run:
           name: Install
-          command: bash install.bash && source ~/.bashrc && type ll
-      - run:
-          name: Test ll alias
-          command: type ll
+          command: |
+            bash install.bash
+            source ~/.bashrc
+            type ls
+            type ll
