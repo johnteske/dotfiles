@@ -8,6 +8,7 @@ jobs:
       - checkout
       - run:
           name: Install
+          shell: /bin/bash -l -eo pipefail
           command: |
             bash install.bash
             source ~/.bashrc
