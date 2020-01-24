@@ -4,20 +4,13 @@ jobs:
     docker:
       - image: debian:stretch
     working_directory: ~/dotfiles
-    environment:
-      BASH_ENV: ~/.bashrc
     steps:
       - checkout
       - run:
           name: Install
           command: bash install.bash
       - run:
-          name: Make custom bashrc available
-          command: |
-            cat bash/bashrc >> $BASH_ENV
-            source /home/circleci/.bashrc
-      - run:
           name: Test
           command: |
-            type ls
+            source bash/bashrc
             type ll
