@@ -4,6 +4,8 @@ jobs:
     docker:
       - image: debian:stretch
     working_directory: ~/dotfiles
+    environment:
+      BASH_ENV: ~/.bashrc
     steps:
       - checkout
       - run:
