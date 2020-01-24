@@ -8,9 +8,14 @@ jobs:
       - checkout
       - run:
           name: Install
-          shell: /bin/bash -l -eo pipefail
+          command: bash install.bash
+      - run:
+          name: Make custom bashrc available
           command: |
-            bash install.bash
-            source ~/.bashrc
+            cat bash/bashrc >> $BASH_ENV
+            source /home/circleci/.bashrc
+      - run:
+          name: Test
+          command: |
             type ls
             type ll
