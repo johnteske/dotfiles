@@ -30,7 +30,8 @@ git-select () {
     git for-each-ref --format="%(refname:short)" refs/heads/\* | \
     grep -v "master\|$(__jt_git_branch)" | \
     while read -r line; do
-        read -rp "Select branch: $line? [y/N] " answer </dev/tty;
+        echo -n "Select branch: $line? [y/N] "
+        read -r answer </dev/tty;
         case "$answer" in
             y|Y) echo "$line";;
         esac;
