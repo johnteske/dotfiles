@@ -15,7 +15,7 @@ __jt_prompt_filtered_user () {
 
 __jt_prompt_git_branch () {
   local BRANCH
-  BRANCH=$(__jt_git_branch)
+  BRANCH=$(__jt__git-branch-name)
   [[ -n $BRANCH ]] && echo "$__jt_prompt_d$BRANCH"
 }
 
