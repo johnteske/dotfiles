@@ -7,6 +7,8 @@ setopt prompt_subst
 zstyle ':vcs_info:git:*' formats '%F{black}%b%f'
 zstyle ':vcs_info:*' enable git
 
+zstyle ':completion:*:*:git:*' script ~/.git-completion.zsh
+
 # vi mode
 bindkey -v
 
