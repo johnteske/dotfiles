@@ -30,6 +30,10 @@ nnoremap <leader><esc> :silent! nohls<cr>
 
 inoremap kj <esc>
 
+" change popup up/down bindings to C-j and C-k
+inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
+inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
+
 source ~/dotfiles/vim/buffers.vim
 source ~/dotfiles/vim/commentline.vim
 source ~/dotfiles/vim/project.vim
