@@ -1,4 +1,4 @@
-" fuzzy finder
+" _fb find buffer
 if executable('fzf')
   function! s:buflist()
     redir => ls
@@ -11,12 +11,12 @@ if executable('fzf')
     execute 'buffer' matchstr(a:e, '^[ 0-9]*')
   endfunction
 
-  nnoremap <silent> <leader>b :call fzf#run({
+  nnoremap <silent> <leader>fb :call fzf#run({
       \   'source':  reverse(<sid>buflist()),
       \   'sink':    function('<sid>bufopen'),
       \   'down':    len(<sid>buflist()) + 2
       \ })<CR>
-else
-  " fallback
-  nnoremap <leader>b :ls<CR>:b
 endif
+
+" _b buffer
+nnoremap <leader>b :ls<CR>:b

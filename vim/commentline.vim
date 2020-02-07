@@ -1,3 +1,4 @@
+" _/ comment curent line
 function! s:NoRemap(mode, ft, str)
   execute 'autocmd FileType ' . a:ft . ' ' .
     \ a:mode . 'noremap <buffer> <localleader>/ ' .
