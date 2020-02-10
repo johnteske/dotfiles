@@ -14,12 +14,12 @@ function report_in_path {
   is_in_path "$1"; print_is "$1"
 }
 
-report_in_path fd
-report_in_path fzf
 report_in_path git
 git_c=~/.git-completion.bash; \
   [ -f "$git_c" ]; print_is "$git_c"
-report_in_path tmux
 report_in_path vim
 ale=~/.vim/pack/git-plugins/start/ale; \
   [ -d "$ale" ]; print_is "$ale"
+report_in_path tmux
+report_in_path fzf
+report_in_path fd
