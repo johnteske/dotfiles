@@ -19,8 +19,4 @@ bak_lns ~/.vimrc ~/dotfiles/vim/vimrc
 mkdir -p ~/.vim/colors
 bak_lns ~/.vim/colors/jt.vim ~/dotfiles/vim/colors/jt.vim
 
-if [ "$INSTALL_ENV" == "linux" ]; then
-    bak_lns ~/.bashrc.linux ~/dotfiles/bash/bashrc.linux
-fi
-
 bak_lns ~/.zshrc ~/dotfiles/zsh/zshrc.zsh
