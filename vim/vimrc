@@ -18,10 +18,6 @@ set smartcase
 set hidden " allow buffers to be unsaved when switching
 set t_Co=16 " set palette to 16 colors
 
-" add blank lines above and below, without insert
-nnoremap <leader>O O<esc>j
-nnoremap <leader>o o<esc>k
-
 " substitute current word
 nnoremap <leader>s :%s/\<<C-r><C-w>\>/
 
@@ -37,6 +33,6 @@ inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 source ~/dotfiles/vim/buffers.vim
 source ~/dotfiles/vim/commentline.vim
 source ~/dotfiles/vim/project.vim
-source ~/dotfiles/vim/split.vim
+source ~/dotfiles/vim/window.vim
 source ~/dotfiles/vim/statusline.vim
 source ~/dotfiles/vim/tabcomplete.vim
