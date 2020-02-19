@@ -30,9 +30,9 @@ inoremap kj <esc>
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 
-source ~/dotfiles/vim/buffers.vim
-source ~/dotfiles/vim/commentline.vim
-source ~/dotfiles/vim/project.vim
-source ~/dotfiles/vim/window.vim
-source ~/dotfiles/vim/statusline.vim
-source ~/dotfiles/vim/tabcomplete.vim
+ source ~/.vim/buffers.vim
+ source ~/.vim/commentline.vim
+ source ~/.vim/project.vim
+ source ~/.vim/window.vim
+ source ~/.vim/statusline.vim
+ source ~/.vim/tabcomplete.vim
