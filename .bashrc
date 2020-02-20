@@ -4,11 +4,10 @@ files=(
   git_utils.bash
   prompt.bash
   fuzzy.bash
-  bashrc.linux
   bash_local)
 
 for file in "${files[@]}"; do
-  [ -r "$HOME/.$file" ] && source "$HOME/.$file"
+  [ -r "$HOME/.dotfiles/$file" ] && source "$HOME/.dotfiles/$file"
 done; unset file
 
 # Editor
@@ -16,4 +15,4 @@ export VISUAL=vim
 export EDITOR="$VISUAL"
 
 # Custom bin
-export PATH=$PATH:~/dotfiles/bin
+export PATH=$PATH:~/.dotfiles/bin
