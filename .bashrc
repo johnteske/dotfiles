@@ -3,12 +3,13 @@ files=(
   aliases.bash
   git_utils.bash
   prompt.bash
-  fuzzy.bash
-  bash_local)
+  fuzzy.bash)
 
 for file in "${files[@]}"; do
-  [ -r "$HOME/.dotfiles/$file" ] && source "$HOME/.dotfiles/$file"
+  [ -r "$HOME/.dotfiles/$file" ] && . "$HOME/.dotfiles/$file"
 done; unset file
+
+[ -r "$HOME/.bash_local" ] && . "$HOME/.bash_local"
 
 # Editor
 export VISUAL=vim
