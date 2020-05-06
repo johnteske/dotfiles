@@ -16,6 +16,6 @@ jobs:
         REPO="https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
         git clone --bare $REPO
         alias
-        alias dotf='/usr/bin/git --git-dir=$HOME/dotfiles.git/ --work-tree=$HOME'
-        dotf config --local status.showUntrackedFiles no
-        dotf status
+        #alias dotf='/usr/bin/git --git-dir=$HOME/dotfiles.git/ --work-tree=$HOME'
+        #dotf config --local status.showUntrackedFiles no
+        #dotf status
