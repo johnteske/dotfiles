@@ -20,12 +20,13 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
+    #- uses: actions/checkout@v2
 
     # Runs a set of commands using the runners shell
     - name: install
       run: |
-        git clone --bare
+        REPO="https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+        git clone --bare $REPO
         alias dotf='/usr/bin/git --git-dir=$HOME/dotfiles.git/ --work-tree=$HOME'
         dotf config --local status.showUntrackedFiles no
         dotf status
