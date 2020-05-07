@@ -10,11 +10,7 @@ jobs:
   shell-check:
     runs-on: ubuntu-latest
     steps:
-    #- uses: actions/checkout@v2
-    - name: install
-      run: |
-        REPO="https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-        git clone --bare $REPO
+    - uses: actions/checkout@v2
     - name: lint
       uses: azohra/shell-linter@v0.3.0
       with:
