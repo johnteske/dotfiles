@@ -4,7 +4,7 @@ autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
 setopt prompt_subst
-zstyle ':vcs_info:git:*' formats '%F{black}%b%f'
+zstyle ':vcs_info:git:*' formats '%K{white}%F{black}%b%f%k'
 zstyle ':vcs_info:*' enable git
 
 zstyle ':completion:*:*:git:*' script ~/.git-completion.zsh
