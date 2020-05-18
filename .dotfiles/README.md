@@ -1,9 +1,13 @@
 ## Installation
 ```
-git clone --bare
+git clone git@github.com:johnteske/dotfiles.git --bare
 alias dotf='/usr/bin/git --git-dir=$HOME/dotfiles.git/ --work-tree=$HOME'
 dotf config --local status.showUntrackedFiles no
 dotf status
+```
+
+## Example usage
+```
 dotf add .xprofile
 dotf commit -m 'Test with xprofile'
 ```
