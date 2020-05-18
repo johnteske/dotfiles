@@ -1,5 +1,6 @@
 ## Installation
 ```
+cd
 git clone git@github.com:johnteske/dotfiles.git --bare
 alias dotf='/usr/bin/git --git-dir=$HOME/dotfiles.git/ --work-tree=$HOME'
 dotf reset . && dotf checkout . # work tree may not be clean
