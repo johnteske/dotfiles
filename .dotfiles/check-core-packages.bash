@@ -1,7 +1,8 @@
 #!/bin/bash
 
 function is_in_path {
-  builtin type -P "$1" &> /dev/null
+  # POSIX-compatible
+  command -v "$1" &> /dev/null
 }
 
 function print_is {
