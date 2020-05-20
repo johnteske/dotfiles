@@ -1,5 +1,31 @@
 #!/bin/bash
 
+while read -r LINE; do
+  PROG=$(echo "$LINE" | awk -F';' '{print $1}')
+  TYPE=$(echo "$LINE" | awk -F';' '{print $2}')
+  case "$TYPE" in
+    command)
+      report_in_path "$PROG"
+      ;;
+    file)
+      [ -f "$PROG" ]; print_is "$PROG"
+      ;;
+    dir)
+      [ -d "$PROG" ]; print_is "$PROG"
+      ;;
+    *)
+      echo "Unsupported TYPE $TYPE"
+  esac
+done <<EOF
+git;command
+$HOME/.git-completion.bash;file
+vim;command
+$HOME/.vim/pack/git-plugins/start/ale;dir
+tmux;command
+fzf;command
+fd;command
+EOF
+
 function is_in_path {
   # POSIX-compatible
   command -v "$1" &> /dev/null
@@ -14,13 +40,3 @@ function print_is {
 function report_in_path {
   is_in_path "$1"; print_is "$1"
 }
-
-report_in_path git
-git_c=~/.git-completion.bash; \
-  [ -f "$git_c" ]; print_is "$git_c"
-report_in_path vim
-ale=~/.vim/pack/git-plugins/start/ale; \
-  [ -d "$ale" ]; print_is "$ale"
-report_in_path tmux
-report_in_path fzf
-report_in_path fd
