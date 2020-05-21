@@ -1,6 +1,6 @@
 #!/bin/bash
 
-read -d '' DEPENDENCIES << EOF
+read -rd '' DEPENDENCIES << EOF
 git;command
 $HOME/.git-completion.bash;file
 vim;command
@@ -30,6 +30,6 @@ while read -r LINE; do
       echo "Unsupported TYPE $TYPE"
   esac
 
-  (( $OK )) && REPORT="NO" || REPORT="ok"
-  printf "[$REPORT] $DEP\n"
+  (( OK )) && REPORT="NO" || REPORT="ok"
+  printf "[%s] %s\n" "$REPORT" "$DEP"
 done <<< "$DEPENDENCIES"
