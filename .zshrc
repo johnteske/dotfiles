@@ -1,12 +1,5 @@
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
-autoload -Uz vcs_info
-precmd_vcs_info() { vcs_info }
-precmd_functions+=( precmd_vcs_info )
-setopt prompt_subst
-zstyle ':vcs_info:git:*' formats '%K{white}%F{black}%b%f%k'
-zstyle ':vcs_info:*' enable git
-
 zstyle ':completion:*:*:git:*' script ~/.git-completion.zsh
 
 # vi mode
@@ -23,7 +16,6 @@ function zle-line-init zle-keymap-select {
   PROMPT="$PROMPT_STYLE%U%1~ %#%u%s "
 
   RPS1=""
-  RPS1+="$vcs_info_msg_0_"
   RPS1+="$EPS1"
 
   zle reset-prompt
