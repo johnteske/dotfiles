@@ -1,22 +1,6 @@
 #!/bin/bash
 
-while read -r LINE; do
-  PROG=$(echo "$LINE" | awk -F';' '{print $1}')
-  TYPE=$(echo "$LINE" | awk -F';' '{print $2}')
-  case "$TYPE" in
-    command)
-      report_in_path "$PROG"
-      ;;
-    file)
-      [ -f "$PROG" ]; print_is "$PROG"
-      ;;
-    dir)
-      [ -d "$PROG" ]; print_is "$PROG"
-      ;;
-    *)
-      echo "Unsupported TYPE $TYPE"
-  esac
-done <<EOF
+read -d '' DEPENDENCIES << EOF
 git;command
 $HOME/.git-completion.bash;file
 vim;command
@@ -26,17 +10,26 @@ fzf;command
 fd;command
 EOF
 
-function is_in_path {
-  # POSIX-compatible
-  command -v "$1" &> /dev/null
-}
+while read -r LINE; do
+  DEP=$(echo "$LINE" | cut -d';' -f1)
+  TYPE=$(echo "$LINE" | cut -d';' -f2)
+  OK=1
 
-function print_is {
-  [ "$?" -eq "0" ] && \
-    echo "[-] $1" || \
-    echo "[X] $1"
-}
+  case "$TYPE" in
+    command)
+      command -v "$DEP" &> /dev/null && OK=0
+      #"$DEP" --version
+      ;;
+    file)
+      [ -f "$DEP" ] && OK=0
+      ;;
+    dir)
+      [ -d "$DEP" ] && OK=0
+      ;;
+    *)
+      echo "Unsupported TYPE $TYPE"
+  esac
 
-function report_in_path {
-  is_in_path "$1"; print_is "$1"
-}
+  (( $OK )) && REPORT="NO" || REPORT="ok"
+  printf "[$REPORT] $DEP\n"
+done <<< "$DEPENDENCIES"
