@@ -11,4 +11,5 @@ git config --global alias.c checkout
 git config --global alias.d diff
 git config --global alias.ds 'diff --staged'
 git config --global alias.l ls-files
+git config --global alias.p push
 git config --global alias.s status
