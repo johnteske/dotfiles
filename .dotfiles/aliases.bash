@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# Manage dotfiles.git
-alias dotf='/usr/bin/git --git-dir=$HOME/dotfiles.git/ --work-tree=$HOME'
+alias .f='dotf'
 
 # General
 alias ..="cd .."
