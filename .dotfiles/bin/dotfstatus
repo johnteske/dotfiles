@@ -2,4 +2,4 @@
 
 __jt__check-deps "$HOME/.dotfiles/core-pkgs"
 
-dotf status
+dotf status -s
