@@ -1,3 +1,5 @@
+![shellcheck](https://github.com/johnteske/dotfiles/workflows/shellcheck/badge.svg)
+
 ## Installation
 ```
 cd
