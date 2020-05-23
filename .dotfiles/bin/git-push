@@ -1,12 +1,14 @@
-#!/bin/bash
+#!/bin/sh
 
 TMP_FILE="$HOME/.TMP_GIT_PUSH"
 git push 2>&1 | tee "$TMP_FILE"
 
 # If git suggests to push and set upstream, give a choice to run
 PUSH_CMD="git push --set-upstream origin $(__jt__git-branch-name)"
+
 if grep -q "${PUSH_CMD}" "$TMP_FILE"; then
-  read -rp "Push and set the remote as upstream? [y/N] " answer </dev/tty;
+  printf "Push and set the remote as upstream? [y/N] "
+  read -r answer </dev/tty;
   case "$answer" in
     y|Y) $PUSH_CMD;;
   esac;
