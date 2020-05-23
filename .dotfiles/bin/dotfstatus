@@ -1,4 +1,4 @@
-#!/bin/bash -v
+#!/bin/sh -v
 
 __jt__check-deps "$HOME/.dotfiles/core-pkgs"
 

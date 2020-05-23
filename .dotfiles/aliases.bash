@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 alias .f='dotf'
 
