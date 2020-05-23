@@ -3,7 +3,7 @@
 export FZF_DEFAULT_OPTS='--no-mouse --color 16'
 
 if command -v fd &> /dev/null; then
-export FZF_DEFAULT_COMMAND='fd --type f'
+export FZF_DEFAULT_COMMAND='fd --hidden --type file'
 fi
 
 preview='head -80'
