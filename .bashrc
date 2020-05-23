@@ -1,9 +1,8 @@
 # Load
 files=(
-  aliases.bash
-  git_utils.bash
-  prompt.bash
-  fuzzy.bash)
+  aliases.sh
+  fzf.sh
+  git.sh)
 
 for file in "${files[@]}"; do
   [ -r "$HOME/.dotfiles/$file" ] && . "$HOME/.dotfiles/$file"
