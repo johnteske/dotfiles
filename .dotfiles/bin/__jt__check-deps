@@ -21,6 +21,12 @@ while read -r LINE; do
       echo "Unsupported TYPE $TYPE"
   esac
 
-  [ $(( OK )) -ne 0 ] && REPORT="NO" || REPORT="OK"
-  printf "[%s] %s\n" "$REPORT" "$DEP"
+  if [ $(( OK )) -ne 0 ]; then
+    REPORT="NO"
+    COLOR="31"
+  else
+    REPORT="OK"
+    COLOR="32"
+  fi
+  printf "[\e[%sm%s\e[0m] %s\n" "$COLOR" "$REPORT" "$DEP"
 done < "$1"
