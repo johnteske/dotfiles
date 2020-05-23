@@ -1,0 +1,7 @@
+git;command;git --version
+.git-completion.bash;file
+vim;command;vim --version | head -1
+.vim/pack/git-plugins/start/ale;dir
+tmux;command;tmux -V | cut -d' ' -f2
+fzf;command;fzf --version
+fd;command;fd --version

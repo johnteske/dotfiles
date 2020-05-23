@@ -1,3 +1,5 @@
-#!/bin/bash
-bash "$HOME/.dotfiles/check-core-packages.bash"
+#!/bin/bash -v
+
+__jt__check-deps "$HOME/.dotfiles/core-pkgs"
+
 dotf status
