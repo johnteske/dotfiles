@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 while read -r LINE; do
   DEP=$(echo "$LINE" | cut -d';' -f1)
@@ -8,7 +8,7 @@ while read -r LINE; do
 
   case "$TYPE" in
     command)
-      command -v "$DEP" &> /dev/null && OK=0
+      command -v "$DEP" > /dev/null 2>&1 && OK=0
       #DEP=$(eval "$VER")
       ;;
     file)
@@ -21,6 +21,6 @@ while read -r LINE; do
       echo "Unsupported TYPE $TYPE"
   esac
 
-  (( OK )) && REPORT="NO" || REPORT="OK"
+  [ $(( OK )) -ne 0 ] && REPORT="NO" || REPORT="OK"
   printf "[%s] %s\n" "$REPORT" "$DEP"
 done < "$1"
