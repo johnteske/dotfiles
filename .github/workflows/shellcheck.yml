@@ -1,4 +1,4 @@
-name: CI
+name: shellcheck
 
 on:
   push:
@@ -14,4 +14,4 @@ jobs:
     - name: lint
       uses: azohra/shell-linter@v0.3.0
       with:
-        path: .bashrc
+        path: ".dotfiles/*,.dotfiles/bin/*"

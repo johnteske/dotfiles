@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/bin/sh
 
 # Git completion
 if [ "$SHELL" = "/bin/bash" ]; then
-  [ -f ~/.git-completion.bash ] && source ~/.git-completion.bash
+  [ -f ~/.git-completion.bash ] && . ~/.git-completion.bash
 fi
 
 git config --global alias.a 'add -p'

@@ -1,0 +1,32 @@
+#!/bin/sh
+
+while read -r LINE; do
+  DEP=$(echo "$LINE" | cut -d';' -f1)
+  TYPE=$(echo "$LINE" | cut -d';' -f2)
+  #VER=$(echo "$LINE" | cut -d';' -f3)
+  OK=1
+
+  case "$TYPE" in
+    command)
+      command -v "$DEP" > /dev/null 2>&1 && OK=0
+      #DEP=$(eval "$VER")
+      ;;
+    file)
+      [ -f "$HOME/$DEP" ] && OK=0
+      ;;
+    dir)
+      [ -d "$HOME/$DEP" ] && OK=0
+      ;;
+    *)
+      echo "Unsupported TYPE $TYPE"
+  esac
+
+  if [ $(( OK )) -ne 0 ]; then
+    REPORT="NO"
+    COLOR="31"
+  else
+    REPORT="OK"
+    COLOR="32"
+  fi
+  printf "[\e[%sm%s\e[0m] %s\n" "$COLOR" "$REPORT" "$DEP"
+done < "$1"
