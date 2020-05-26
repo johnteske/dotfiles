@@ -1,15 +1,14 @@
 # Load
 files=(
-  aliases.bash
-  git_utils.bash
-  prompt.bash
-  fuzzy.bash)
+  aliases.sh
+  fzf.sh
+  git.sh)
 
 for file in "${files[@]}"; do
   [ -r "$HOME/.dotfiles/$file" ] && . "$HOME/.dotfiles/$file"
 done; unset file
 
-[ -r "$HOME/.bash_local" ] && . "$HOME/.bash_local"
+[ -r "$HOME/.dotlocals/.bash_local" ] && . "$HOME/.dotlocals/.bash_local"
 
 # Editor
 export VISUAL=vim
