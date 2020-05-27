@@ -30,6 +30,25 @@ then vf () {
         --preview-window "${preview_window}")
     [ -f "$f" ] && vim "$f"
 }
+
+fff() {
+  case "$@" in
+    g)
+      git branch
+      return
+      ;;
+    v)
+      #shift
+      vim "$(fzf)" #"$@"
+      return
+      ;;
+    *)
+      "$@" "$(fzf)"
+      return
+      ;;
+  esac
+}
+
 else vf () {
   vim .
 }
