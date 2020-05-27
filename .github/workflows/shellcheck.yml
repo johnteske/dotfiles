@@ -13,5 +13,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: lint
       uses: azohra/shell-linter@v0.3.0
+      env:
+        SHELLCHECK_OPTS: -e SC1090 # Ignore SC1090: Can't follow non-constant source
       with:
         path: ".dotfiles/*,.dotfiles/bin/*"
