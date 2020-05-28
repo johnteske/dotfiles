@@ -31,20 +31,17 @@ then vf () {
     [ -f "$f" ] && vim "$f"
 }
 
-fff() {
+f() {
   case "$@" in
     g)
       git branch
-      return
       ;;
     v)
       #shift
       vim "$(fzf)" #"$@"
-      return
       ;;
     *)
       "$@" "$(fzf)"
-      return
       ;;
   esac
 }
