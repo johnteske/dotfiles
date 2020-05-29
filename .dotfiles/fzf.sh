@@ -1,12 +1,12 @@
 #!/bin/sh
 
 # TODO how to handle (or not) stdin
-# TODO standardize preview (as FZF_DEFAULT_PREVIEW?)
-# TODO max preview height
 
 if command -v fzf >/dev/null; then
 
-  export FZF_DEFAULT_OPTS='--no-mouse --color 16 --preview "head -40 {}" --info=hidden'
+  # TODO dynamically set max preview height
+  __jt__fzf_default_preview="head -40"
+  export FZF_DEFAULT_OPTS="--no-mouse --color 16 --preview '$__jt__fzf_default_preview {}' --info=hidden"
 
   if command -v fd > /dev/null 2>&1; then
     export FZF_DEFAULT_COMMAND='fd --hidden --exclude .git --type file'
@@ -25,7 +25,7 @@ if command -v fzf >/dev/null; then
         fzf \
           --header-lines=1 \
           --header 'git checkout' \
-          --preview 'git show {} | head -40')
+          --preview "git show {} | $__jt__fzf_default_preview")
         [ -n "$fzff" ] && git checkout "$fzff"
         ;;
       v)
