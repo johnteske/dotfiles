@@ -1,6 +1,5 @@
 #!/bin/sh
 
-# TODO handle no args (don't show header)
 # TODO how to handle (or not) stdin
 # TODO standardize preview (as FZF_DEFAULT_PREVIEW?)
 # TODO max preview height
@@ -34,8 +33,13 @@ if command -v fzf >/dev/null; then
         [ -f "$fzff" ] && vim "$fzff"
         ;;
       *)
-        fzff=$(fzf --header "$@")
-        [ -f "$fzff" ] && "$@" "$fzff"
+        # handle args/no args
+        if [ "$#" -ne 0 ]; then
+          fzff=$(fzf --header "$@")
+          "$@" "$fzff"
+        else
+          fzf
+        fi
         ;;
     esac
     unset fzff
