@@ -1,12 +1,9 @@
 #!/bin/sh
 
-# TODO how to handle (or not) stdin
-
 # exit early if fzf not found
 if ! command -v fzf >/dev/null; then return 1; fi
 
-# TODO dynamically set max preview height
-__jt__fzf_default_preview="head -40"
+__jt__fzf_default_preview="head -60"
 export FZF_DEFAULT_OPTS="--no-mouse --color 16 --preview '$__jt__fzf_default_preview {}' --info=hidden"
 
 if command -v fd >/dev/null 2>&1; then
@@ -14,6 +11,8 @@ if command -v fd >/dev/null 2>&1; then
 fi
 
 f() {
+  if [ ! -t 0 ]; then echo "stdin not supported"; return 1; fi
+
   case "$@" in
   g)
     # exit early if not git repo
