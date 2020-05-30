@@ -16,7 +16,7 @@ if command -v fzf >/dev/null; then
     case "$@" in
       g)
         # exit early if not git repo
-        if ! __jt__git-branch-name >/dev/null; then return 1; fi
+        if ! __jt__git-branch-name 1>/dev/null; then return 1; fi
 
         # display current branch above header
         fzff=$(git branch \
