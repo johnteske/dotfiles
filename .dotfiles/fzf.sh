@@ -3,7 +3,7 @@
 # TODO how to handle (or not) stdin
 
 # exit early if fzf not found
-if command -v fzf >/dev/null; then return 1; fi
+if ! command -v fzf >/dev/null; then return 1; fi
 
 # TODO dynamically set max preview height
 __jt__fzf_default_preview="head -40"
