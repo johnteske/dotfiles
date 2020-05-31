@@ -3,8 +3,13 @@
 # exit early if fzf not found
 if ! command -v fzf >/dev/null; then return 1; fi
 
-__jt__fzf_default_preview="head -60"
-export FZF_DEFAULT_OPTS="--no-mouse --color 16 --preview '$__jt__fzf_default_preview {}' --info=hidden"
+if command -v bat >/dev/null 2>&1; then
+  __jt__fzf_default_preview="[ -f '{}' ] && bat --style=changes --color always -r 1:60"
+else
+  __jt__fzf_default_preview="[ -f '{}' ] && head -60"
+fi
+
+export FZF_DEFAULT_OPTS="--no-mouse --color=16 --info=hidden --preview '$__jt__fzf_default_preview {}'"
 
 if command -v fd >/dev/null 2>&1; then
   export FZF_DEFAULT_COMMAND='fd --hidden --exclude .git --type file'
