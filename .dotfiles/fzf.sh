@@ -11,7 +11,15 @@ if command -v fd >/dev/null 2>&1; then
 fi
 
 f() {
-  if [ ! -t 0 ]; then echo "stdin not supported"; return 1; fi
+  if [ ! -t 0 ]; then
+    cat <<EOF
+f: Use of stdin is not supported. Use fzf instead.
+
+   Example: echo 'one\ntwo' | fzf | cat
+
+EOF
+    return 1;
+  fi
 
   case "$@" in
   g)
