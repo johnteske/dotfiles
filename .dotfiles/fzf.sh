@@ -43,9 +43,8 @@ EOF
   *)
     # handle args/no args
     if [ "$#" -ne 0 ]; then
-      #fzff=$(fzf --header "$@") # TODO "$@" is an array, not a string
-      fzff=$(fzf)
-      "$@" "$fzff"
+      fzff=$(fzf --header "$*")
+      [ -n "$fzff" ] && "$@" "$fzff"
     else
       fzf
     fi
