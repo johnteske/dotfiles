@@ -18,7 +18,7 @@ f: Use of stdin is not supported. Use fzf instead.
    Example: echo 'one\ntwo' | fzf | cat
 
 EOF
-    return 1;
+    return 1
   fi
 
   case "$@" in
