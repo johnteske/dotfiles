@@ -27,7 +27,7 @@ EOF
       sed "s:~:$HOME:g" "$HOME/.dotfiles/bookmarks" |
       fzf \
         --header 'cd' \
-        --preview "ls {}"
+        --preview 'ls {}'
       )
     cd "$fzff" || return 1
     ;;
