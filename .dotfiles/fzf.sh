@@ -22,6 +22,15 @@ EOF
   fi
 
   case "$@" in
+  c)
+    fzff=$(
+      sed "s:~:$HOME:g" "$HOME/.dotfiles/bookmarks" |
+      fzf \
+        --header 'cd' \
+        --preview "ls {}"
+      )
+    cd "$fzff" || return 1
+    ;;
   g)
     # exit early if not git repo
     if ! __jt__git-branch-name 1>/dev/null; then return 1; fi
