@@ -1,0 +1,9 @@
+#!/bin/sh
+
+git branch \
+  --format='%(refname:short)' \
+  --sort='-HEAD' |
+fzf --multi \
+  --header-lines=1 \
+  --header='git branch -d' |
+xargs git branch -d
