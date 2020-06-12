@@ -1,6 +1,6 @@
 #!/bin/sh -v
 
-__jt__check-deps "$HOME/.dotfiles/core-pkgs"
+__jt__check-deps "$DOTF/core-pkgs"
 
 git config --global -l
 
