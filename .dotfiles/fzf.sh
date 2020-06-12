@@ -24,7 +24,7 @@ EOF
   case "$@" in
   c)
     fzff=$(
-      sed "s:~:$HOME:g" "$HOME/.dotfiles/bookmarks" |
+      sed "s:~:$HOME:g" "$DOTF/bookmarks" |
       fzf \
         --header 'cd' \
         --preview 'ls {}'

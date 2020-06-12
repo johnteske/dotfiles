@@ -16,4 +16,4 @@ export VISUAL=vim
 export EDITOR="$VISUAL"
 
 # add bin to PATH
-export PATH=$PATH:"$HOME/.dotfiles/bin"
+export PATH=$PATH:"$DOTF/bin"
