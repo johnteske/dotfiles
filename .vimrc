@@ -5,7 +5,7 @@ set nocompatible
 
 filetype plugin on
 syntax on
-colorscheme jt
+colorscheme johnteske
 
 set path+=**
 set shortmess=Iat
@@ -29,10 +29,3 @@ inoremap kj <esc>
 " change popup up/down bindings to C-j and C-k
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
-
-source ~/.vim/buffers.vim
-source ~/.vim/commentline.vim
-source ~/.vim/project.vim
-source ~/.vim/window.vim
-source ~/.vim/statusline.vim
-source ~/.vim/tabcomplete.vim
