@@ -16,4 +16,4 @@ jobs:
       env:
         SHELLCHECK_OPTS: -e SC1090 # Ignore SC1090: Can't follow non-constant source
       with:
-        path: ".dotfiles/*,.dotfiles/bin/*"
+        path: ".dotfiles/*.sh,.dotfiles/bin/*"
