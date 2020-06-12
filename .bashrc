@@ -1,18 +1,19 @@
-# Load
-files=(
-  aliases.sh
-  fzf.sh
-  git.sh)
+export DOTF="$HOME/.dotfiles"
+export DOTL="$HOME/.dotlocals"
 
-for file in "${files[@]}"; do
-  [ -r "$HOME/.dotfiles/$file" ] && . "$HOME/.dotfiles/$file"
-done; unset file
+# source files
+while read -r file
+  do [ -r "$file" ] && . "$file"
+done <<- EOF
+  $DOTF/aliases.sh
+  $DOTF/fzf.sh
+  $DOTF/git.sh
+  $DOTL/.bash_local
+EOF
 
-[ -r "$HOME/.dotlocals/.bash_local" ] && . "$HOME/.dotlocals/.bash_local"
-
-# Editor
+# editor
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
-# Custom bin
-export PATH=$PATH:~/.dotfiles/bin
+# add bin to PATH
+export PATH=$PATH:"$HOME/.dotfiles/bin"
