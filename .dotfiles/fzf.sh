@@ -23,12 +23,18 @@ EOF
 
   case "$@" in
   c)
+    # add git project root if available
+    git_root=$(git rev-parse --show-toplevel 2>/dev/null)
+    if [ -n "$git_root" ]; then git_root="$git_root\n"; fi
+
     fzff=$(
       sed "s:~:$HOME:g" "$DOTF/bookmarks" |
+      sed "s:.*:$git_root&:g" |
       fzf \
         --header 'cd' \
         --preview 'ls {}'
       )
+    unset git_root
     cd "$fzff" || return 1
     ;;
   g)
