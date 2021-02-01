@@ -13,3 +13,5 @@ git config --global alias.ds 'diff --staged'
 git config --global alias.l ls-files
 git config --global alias.p push
 git config --global alias.s status
+
+git config --global core.hooksPath "$DOTF/git-hooks"
