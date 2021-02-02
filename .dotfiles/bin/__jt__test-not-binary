@@ -1,0 +1,4 @@
+#!/bin/sh
+
+#https://stackoverflow.com/questions/2644938/how-to-tell-binary-from-text-files-in-linux
+grep -qI '.' "$1"
