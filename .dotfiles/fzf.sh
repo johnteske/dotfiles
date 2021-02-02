@@ -3,7 +3,8 @@
 # exit early if fzf not found
 if ! command -v fzf >/dev/null; then return 1; fi
 
-__jt__fzf_default_preview="[ -f '{}' ] && head -60"
+# if file and not binary, preview
+__jt__fzf_default_preview="[ -f '{}' ] && __jt__test-not-binary {} && head -60"
 export FZF_DEFAULT_OPTS="--no-mouse --color=16 --info=hidden --preview '$__jt__fzf_default_preview {}'"
 
 if command -v fd >/dev/null 2>&1; then
