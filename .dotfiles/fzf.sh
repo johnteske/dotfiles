@@ -49,7 +49,8 @@ EOF
       fzf \
         --header-lines=1 \
         --header 'git checkout' \
-        --preview "git show {} | $__jt__fzf_default_preview")
+        --preview "git diff {} --stat"
+      )
     [ -n "$fzff" ] && git checkout "$fzff"
     ;;
   v)
