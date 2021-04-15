@@ -25,6 +25,6 @@ zle -N zle-keymap-select
 
 autoload -U add-zsh-hook
 refresh-tmux() {
-  [ -n $TMUX ] && tmux refresh-client -S
+  [ -n "$TMUX" ] && tmux refresh-client -S
 }
 add-zsh-hook chpwd refresh-tmux
